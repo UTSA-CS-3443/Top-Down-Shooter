@@ -18,7 +18,7 @@ public class MainController implements EventHandler<ActionEvent> {
 		try {
 			// change over to a second view
 			Parent root = FXMLLoader.load(getClass().getResource("/SecondView.fxml"));   // Load the FXML
-			Main.stage.setScene(new Scene(root, 500, 575));							   // Add the scene to the stage
+			Main.stage.setScene(new Scene(root, 800, 800));							   // Add the scene to the stage
 			Main.stage.show();		
 			// Show the stage to the user
 		}catch(Exception e) {

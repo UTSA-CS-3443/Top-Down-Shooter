@@ -15,22 +15,17 @@
             <Image url="@palette-312289_640.png" />
          </image>
       </ImageView>
-      <BorderPane layoutX="2.0" layoutY="2.0" prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <center>
-            <Button alignment="CENTER" mnemonicParsing="false" onAction="#handleOptions" text="Options" textFill="#3d4ada" BorderPane.alignment="CENTER" />
-         </center>
-         <bottom>
-            <Button mnemonicParsing="false" onAction="#handleCloseButton" text="Exit Game" textFill="#3d4ada" BorderPane.alignment="CENTER" />
-         </bottom>
-         <top>
-            <Button mnemonicParsing="false" onAction="#handle" text="Start Game" textFill="#3d4ada" BorderPane.alignment="CENTER" />
-         </top>
-         <left>
-            <Label layoutX="200.0" layoutY="200.0" rotate="-53.1" text="PaintWarrior" textFill="#3ca611" BorderPane.alignment="CENTER">
+      <Pane prefHeight="500.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Button layoutX="343.0" layoutY="220.0" mnemonicParsing="false" onAction="#handle" rotate="-42.5" text="New Game" textFill="#c62929" />
+            <Button layoutX="262.0" layoutY="322.0" mnemonicParsing="false" onAction="#handleOptions" text="Options" textFill="#257c45" />
+            <Button layoutX="136.0" layoutY="393.0" mnemonicParsing="false" onAction="#handleCloseButton" text="Exit Game" textFill="#819408" />
+            <Label layoutX="36.0" layoutY="103.0" rotate="-45.0" text="PaintWarrior" textFill="#15b0b9">
                <font>
                   <Font size="36.0" />
-               </font></Label>
-         </left>
-      </BorderPane>
+               </font>
+            </Label>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

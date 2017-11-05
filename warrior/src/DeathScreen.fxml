@@ -12,14 +12,14 @@
    <children>
       <BorderPane prefHeight="500.0" prefWidth="500.0">
          <bottom>
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" text="Quit" textFill="#e32727" BorderPane.alignment="CENTER">
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#handleCloseButton" text="Quit" textFill="#e32727" BorderPane.alignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
          </bottom>
          <center>
-            <Button blendMode="EXCLUSION" mnemonicParsing="false" text="New Game?" textAlignment="CENTER" textFill="#e42626" BorderPane.alignment="CENTER">
+            <Button blendMode="EXCLUSION" mnemonicParsing="false" onAction="#handleNewGame"text="New Game?" textAlignment="CENTER" textFill="#e42626" BorderPane.alignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

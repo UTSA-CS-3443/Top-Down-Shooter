@@ -1,6 +1,7 @@
 package application.controller;
 
 import application.Main;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +23,12 @@ public class DeathScreen implements EventHandler<ActionEvent>{
 					e.printStackTrace(); // TODO: app should do something more productive if errors occur...
 				}
 	}
-
+	public void handleCloseButton(ActionEvent event) {
+		Platform.exit();
+	}
+	public void handleNewGame(ActionEvent event) {
+		
+	}
 	@Override
 	public void handle(ActionEvent event) {
 		// TODO Auto-generated method stub
