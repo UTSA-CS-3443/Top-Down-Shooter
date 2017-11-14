@@ -16,7 +16,7 @@ public class GameStarter {
 	private Timeline smallEnemyAttack;
 	private Timeline bigEnemeyAttack;
 	
-	private Warrior warrior = new Warrior();
+	private Player player = new Player();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Enemy> enemy = new ArrayList<>();
 	private ArrayList<Projectiles> projectiles= new ArrayList<>();
@@ -29,11 +29,12 @@ public class GameStarter {
 	public GameStarter()
 	{
 		screen = new GameStarter();
+		//screen = new GameStarter(); instead?? BVP
 		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
 		setupScene(screen);
 		setupKeybinds();
 		
-		add(warrior);
+		add(player);
 		
 		setupTimesLines();
 		
@@ -49,54 +50,49 @@ public class GameStarter {
 		}
 		private void setupKeyMovement()
 		{
-			scene.setOnKeyPressed(e -> {
+			scene.setOnKeyPressed(e {
 				case A:
-					warrior.Move(Direction.LEFT);
+					player.Move(Direction.LEFT);
 					break;
 				case D:
-					warrior.Move(Direction.RIGHT);
+					player.Move(Direction.RIGHT);
 					break;
 				case W:
-					warrior.Move(Direction.UP);
+					player.Move(Direction.UP);
 					break;
 				case S:
-					warrior.Move(Direction.DOWN);
+					player.Move(Direction.DOWN);
 					break;
 				case SPACE:
-					warrior.fire();
+					player.fire();
 					break;
 				case ESCAPE:
 					pause();
 			}
-<<<<<<< HEAD
-		}catch(NullPointerException ex) {
-			System.err.println("player doesnt exist");
-=======
 		}catch(NULLPointerException ex) {
-			System.err.println("warrior doesnt exist");
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
+			System.err.println("player doesnt exist");
 		}	
 		});
-		
+		}
 		scene.setOnKeyReleased(e ->{
 			try{
 				switch(e.getCode()) {
 				case A:
-					warrior.Stop(Direction.LEFT);
+					player.Stop(Direction.LEFT);
 					break;
 				case D:
-					warrior.Stop(Direction.RIGHT);
+					player.Stop(Direction.RIGHT);
 					break;
 				case W:
-					warrior.Stop(Direction.UP);
+					player.Stop(Direction.UP);
 					break;
 				case S:
-					warrior.Stop(Direction.DOWN);
+					player.Stop(Direction.DOWN);
 					break;
 				}
 			}
 			catch(NullPointerException ex) {
-				System.err.println("warrior doesnt exists");
+				System.err.println("player doesnt exists");
 			}	
 				});
 	}
@@ -104,10 +100,10 @@ public class GameStarter {
 	private void add(Thing thing)
 	{
 		Thing.add(thing);
-		if(thing instanceof Warrior)
+		if(thing instanceof Player)
 		{
-			warrior =(Warrior)thing;
-			screen.getHealth(warrior.health());
+			player =(Player)thing;
+			screen.getHealth(player.health());
 	}
 		if(thing instanceof Enemy)
 		{
@@ -134,13 +130,13 @@ public void removeFromQ(Thing thing)
 {
 	ThingToRemove.add(thing);
 }
-	public double getWarriorX()
+	public double getPlayerX()
 	{
-		return warrior.getX();
+		return player.getX();
 	}
-	public double getWarriorY()
+	public double getPlayerY()
 	{
-		return warrior.getX();
+		return player.getX();
 	}
 	public GameScreen getScreen()
 	{
@@ -172,13 +168,14 @@ public void removeFromQ(Thing thing)
 		ThingToRemove.clear();
 		mannequin.clear();
 		Splash.clear();
-		
-		addToQ(new Warrior());
-		
+
+		addToQ(new Player());
+
 		setupScreen(new GameScreen());
-		
+
 		play();
 	}
+	
 	private void setupTime()
 	{
 		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK), e->) {
@@ -186,20 +183,8 @@ public void removeFromQ(Thing thing)
 			{
 				thing.doTick();
 				
-				if(thing instanceof Enemy)
-				{
-					if()((Enemy)thing).getHealth()<=0)
-				{
-					removeQ(thing);
-				}
-				}
-				if(thing instanceof Player)
-				{
-					if(((Mob)thing).getHealth() <=0)
-					{
-						gameOver();
-						
-						queueRemoval(thing);
-					}
-				}
+				if(Thing instanceof Enemy)
+			}
+				)
+	}
 }
