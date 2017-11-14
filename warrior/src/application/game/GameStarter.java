@@ -173,16 +173,15 @@ public void removeFromQ(Thing thing)
 		ThingToRemove.clear();
 		mannequin.clear();
 		Splash.clear();
-<<<<<<< HEAD
+
 
 		
-		addToQ(new Player());
 
-=======
+
 		
 		addToQ(new Warrior());
 		
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
+
 		setupScreen(new GameScreen());
 		
 		play();
