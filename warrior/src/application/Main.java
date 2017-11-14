@@ -11,7 +11,6 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	
-	public static Stage stage;
 
 public void start(Stage primaryStage) {
         
@@ -23,3 +22,4 @@ public void start(Stage primaryStage) {
         primaryStage.show();
     }
 }
+
