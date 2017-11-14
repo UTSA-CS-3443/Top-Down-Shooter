@@ -29,7 +29,7 @@ public class GameStarter {
 	public GameStarter()
 	{
 		screen = new GameStarter();
-		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
+		scene = new Scene(pane,ClassProportions.WINDOW_W, ClassProportions.WINDOW_H);
 		setupScene(screen);
 		setupKeybinds();
 		
