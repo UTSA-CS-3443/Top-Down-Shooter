@@ -69,13 +69,13 @@ public class GameStarter {
 				case ESCAPE:
 					pause();
 			}
-
+			}
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
-
+			System.err.println("player doesnt exist");
 		}catch(NULLPointerException ex) {
 			System.err.println("warrior doesnt exist");
-
+			System.err.println("warrior doesnt exist");
 		}	
 		});
 		
@@ -137,11 +137,11 @@ public void removeFromQ(Thing thing)
 }
 	public double getWarriorX()
 	{
-		return warrior.getX();
+		return warrior.getX_VALUE();
 	}
 	public double getWarriorY()
 	{
-		return warrior.getX();
+		return warrior.getY_VALUE();
 	}
 	public GameScreen getScreen()
 	{
