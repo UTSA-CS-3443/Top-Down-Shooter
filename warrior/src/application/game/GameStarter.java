@@ -26,6 +26,7 @@ public class GameStarter {
 	ArrayList<Particles> explosionToAdd = new ArrayList<>();
 	ArrayList<Particles> explosionsToRemove = new ArrayList<>();
 	
+	
 	public GameStarter()
 	{
 		screen = new GameStarter();
@@ -172,9 +173,15 @@ public void removeFromQ(Thing thing)
 		ThingToRemove.clear();
 		mannequin.clear();
 		Splash.clear();
+
+
+		
+
+
 		
 		addToQ(new Warrior());
 		
+
 		setupScreen(new GameScreen());
 		
 		play();
