@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.sun.javafx.scene.traversal.Direction;
 
+import application.ClassProportions;
 import javafx.animation.Timeline;
 
 public class GameStarter {
