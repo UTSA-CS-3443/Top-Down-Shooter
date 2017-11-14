@@ -197,7 +197,7 @@ public void removeFromQ(Thing thing)
 						queueRemoval(thing);
 					}
 				}
-				}
+				
 
 			
 }
