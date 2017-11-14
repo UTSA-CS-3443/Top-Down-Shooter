@@ -13,17 +13,18 @@ public class GameStarter {
 	private Scene scene;
 
 	private Timeline gameLoop;
-	private Timeline MannequinAttack;
+	private Timeline smallEnemyAttack;
+	private Timeline bigEnemeyAttack;
 	
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Mannequin> enemy = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
-	ArrayList<Thing> entitiesToAdd = new ArrayList<>();
-	ArrayList<Thing> entitiesToRemove = new ArrayList<>();
-	ArrayList<Splash> splashToAdd = new ArrayList<>();
-	ArrayList<Splash> splashToRemove = new ArrayList<>();
+	ArrayList<Entity> entitiesToAdd = new ArrayList<>();
+	ArrayList<Entity> entitiesToRemove = new ArrayList<>();
+	ArrayList<Particles> explosionToAdd = new ArrayList<>();
+	ArrayList<Particles> explosionsToRemove = new ArrayList<>();
 	
 	
 	public GameStarter()
@@ -69,9 +70,9 @@ public class GameStarter {
 					pause();
 			}
 			}
-		}catch(NullPointerException ex) {
+		/*}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
-			System.err.println("player doesnt exist");
+			System.err.println("player doesnt exist");*/
 		}catch(NULLPointerException ex) {
 			System.err.println("warrior doesnt exist");
 			System.err.println("warrior doesnt exist");
