@@ -1,4 +1,4 @@
-package application.game;
+package application;
 
 public class ClassProportions {
 	

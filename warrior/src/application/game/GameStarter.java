@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import com.sun.javafx.scene.traversal.Direction;
 
+import application.ClassProportions;
 import javafx.animation.Timeline;
 
 public class GameStarter {
@@ -29,7 +30,7 @@ public class GameStarter {
 	public GameStarter()
 	{
 		screen = new GameStarter();
-		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
+		scene = new Scene(pane,ClassProportions.WINDOW_W, ClassProportions.WINDOW_H);
 		setupScene(screen);
 		setupKeybinds();
 		
