@@ -13,18 +13,17 @@ public class GameStarter {
 	private Scene scene;
 
 	private Timeline gameLoop;
-	private Timeline smallEnemyAttack;
-	private Timeline bigEnemeyAttack;
+	private Timeline MannequinAttack;
 	
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Mannequin> enemy = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
-	ArrayList<Entity> entitiesToAdd = new ArrayList<>();
-	ArrayList<Entity> entitiesToRemove = new ArrayList<>();
-	ArrayList<Particles> explosionToAdd = new ArrayList<>();
-	ArrayList<Particles> explosionsToRemove = new ArrayList<>();
+	ArrayList<Thing> entitiesToAdd = new ArrayList<>();
+	ArrayList<Thing> entitiesToRemove = new ArrayList<>();
+	ArrayList<Splash> splashToAdd = new ArrayList<>();
+	ArrayList<Splash> splashToRemove = new ArrayList<>();
 	
 	
 	public GameStarter()
