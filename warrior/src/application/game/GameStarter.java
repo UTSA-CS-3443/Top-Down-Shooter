@@ -68,13 +68,13 @@ public class GameStarter {
 				case ESCAPE:
 					pause();
 			}
-<<<<<<< HEAD
+
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
-=======
+
 		}catch(NULLPointerException ex) {
 			System.err.println("warrior doesnt exist");
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
+
 		}	
 		});
 		
@@ -202,4 +202,5 @@ public void removeFromQ(Thing thing)
 						queueRemoval(thing);
 					}
 				}
+				
 }
