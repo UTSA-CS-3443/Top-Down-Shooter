@@ -112,3 +112,51 @@ public class GameStarter {
 		if(thing instanceof Splash)splash.add((Splash)thing);
 		screen.getChildren().add(thing);
 }
+	private void remove(Thing thing)
+	{
+		if (thing instanceof Enemy)
+			screen.getChildren().remove(((Enemy)thing)getHealthBar());
+		Thing.remove(thing);
+		Thing.remove(thing);
+		Splash.remove(thing);
+		screen.getChildren().remove(thing);	
+	}
+public void addToQ(Thing thing)
+{
+	ThingToAdd.add(thing);
+}
+public void removeFromQ(Thing thing)
+{
+	ThingToRemove.add(thing);
+}
+	public double getPlayerX()
+	{
+		return player.getX();
+	}
+	public double getPlayerY()
+	{
+		return player.getX();
+	}
+	public GameScreen getScreen()
+	{
+		return screen;
+	}
+	public Scene getScene()
+	{
+	}
+	private void pause()
+	{
+		gameLoop.pause();
+		enemyLoop.pause();
+	}
+	private void play()
+	{
+		gameLoop.play();
+		enemyLoop.play();
+	}
+	private void stop()
+	{
+		
+	}
+	
+}
