@@ -17,7 +17,7 @@ public class GameStarter {
 	private Player player = new Player();
 	private ArrayList<Entity> entities = new ArrayList<>();
 	private ArrayList<Enemy> enemy = new ArrayList<>();
-	ArrayList<Projectiles> projectiles = new ArrayList<>();
+	ArrayList<Projectiles> projectiles= new ArrayList<>();
 	
 	
 	
