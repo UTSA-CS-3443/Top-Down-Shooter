@@ -141,7 +141,6 @@ public void removeFromQ(Thing thing)
 	{
 		return screen;
 	}
-	
 	public Scene getScene()
 	{
 	}
