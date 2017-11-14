@@ -169,6 +169,7 @@ public void removeFromQ(Thing thing)
 		mannequin.clear();
 		Splash.clear();
 
+		
 		addToQ(new Player());
 
 		setupScreen(new GameScreen());
