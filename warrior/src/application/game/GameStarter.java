@@ -1,6 +1,10 @@
 package application.game;
 
+import java.io.File;
 import javafx.scene.Scene;
+import application.ClassProportions;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 
@@ -28,17 +32,17 @@ public class GameStarter {
 	
 	public GameStarter()
 	{
-		screen = new GameStarter();
-		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
+		screen = new GameScreen();
+		scene = new Scene(screen,ClassProportions.WINDOW_W, ClassProportions.WINDOW_H);
 		setupScene(screen);
-		setupKeybinds();
+		setupKeyMovement();
 		
 		add(warrior);
 		
 		setupTimesLines();
 		
 		displayHelp();
-		
+	}
 		private void setupScene(GameScreen screen)
 		{
 			this.screen = screen;
@@ -50,6 +54,8 @@ public class GameStarter {
 		private void setupKeyMovement()
 		{
 			scene.setOnKeyPressed(e -> {
+				try {
+					switch(e.getCode()) {
 				case A:
 					warrior.Move(Direction.LEFT);
 					break;
@@ -72,10 +78,7 @@ public class GameStarter {
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
 			System.err.println("player doesnt exist");
-		}catch(NULLPointerException ex) {
-			System.err.println("warrior doesnt exist");
-			System.err.println("warrior doesnt exist");
-		}	
+		}
 		});
 		
 		scene.setOnKeyReleased(e ->{
