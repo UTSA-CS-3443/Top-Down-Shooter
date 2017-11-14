@@ -6,7 +6,7 @@ public class Mannequin {
 	int X_VALUE;
 	int Y_VALUE;
 	boolean IS_TOUCHING = false;
-	
+	 
 	public void setPosition(int x, int y) {
 		this.X_VALUE = x;
 		this.Y_VALUE = y;
