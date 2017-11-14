@@ -22,4 +22,3 @@ public void start(Stage primaryStage) {
         primaryStage.show();
     }
 }
-
