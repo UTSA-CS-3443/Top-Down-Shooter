@@ -16,7 +16,7 @@ public class GameStarter {
 	private Timeline smallEnemyAttack;
 	private Timeline bigEnemeyAttack;
 	
-	private Player player = new Player();
+	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Enemy> enemy = new ArrayList<>();
 	private ArrayList<Projectiles> projectiles= new ArrayList<>();
@@ -33,7 +33,7 @@ public class GameStarter {
 		setupScene(screen);
 		setupKeybinds();
 		
-		add(player);
+		add(warrior);
 		
 		setupTimesLines();
 		
@@ -51,25 +51,30 @@ public class GameStarter {
 		{
 			scene.setOnKeyPressed(e -> {
 				case A:
-					player.Move(Direction.LEFT);
+					warrior.Move(Direction.LEFT);
 					break;
 				case D:
-					player.Move(Direction.RIGHT);
+					warrior.Move(Direction.RIGHT);
 					break;
 				case W:
-					player.Move(Direction.UP);
+					warrior.Move(Direction.UP);
 					break;
 				case S:
-					player.Move(Direction.DOWN);
+					warrior.Move(Direction.DOWN);
 					break;
 				case SPACE:
-					player.fire();
+					warrior.fire();
 					break;
 				case ESCAPE:
 					pause();
 			}
+<<<<<<< HEAD
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
+=======
+		}catch(NULLPointerException ex) {
+			System.err.println("warrior doesnt exist");
+>>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
 		}	
 		});
 		
@@ -77,21 +82,21 @@ public class GameStarter {
 			try{
 				switch(e.getCode()) {
 				case A:
-					player.Stop(Direction.LEFT);
+					warrior.Stop(Direction.LEFT);
 					break;
 				case D:
-					player.Stop(Direction.RIGHT);
+					warrior.Stop(Direction.RIGHT);
 					break;
 				case W:
-					player.Stop(Direction.UP);
+					warrior.Stop(Direction.UP);
 					break;
 				case S:
-					player.Stop(Direction.DOWN);
+					warrior.Stop(Direction.DOWN);
 					break;
 				}
 			}
 			catch(NullPointerException ex) {
-				System.err.println("player doesnt exists");
+				System.err.println("warrior doesnt exists");
 			}	
 				});
 	}
@@ -99,10 +104,10 @@ public class GameStarter {
 	private void add(Thing thing)
 	{
 		Thing.add(thing);
-		if(thing instanceof Player)
+		if(thing instanceof Warrior)
 		{
-			player =(Player)thing;
-			screen.getHealth(player.health());
+			warrior =(Warrior)thing;
+			screen.getHealth(warrior.health());
 	}
 		if(thing instanceof Enemy)
 		{
@@ -129,13 +134,13 @@ public void removeFromQ(Thing thing)
 {
 	ThingToRemove.add(thing);
 }
-	public double getPlayerX()
+	public double getWarriorX()
 	{
-		return player.getX();
+		return warrior.getX();
 	}
-	public double getPlayerY()
+	public double getWarriorY()
 	{
-		return player.getX();
+		return warrior.getX();
 	}
 	public GameScreen getScreen()
 	{
@@ -168,7 +173,7 @@ public void removeFromQ(Thing thing)
 		mannequin.clear();
 		Splash.clear();
 		
-		addToQ(new Player());
+		addToQ(new Warrior());
 		
 		setupScreen(new GameScreen());
 		
@@ -197,5 +202,4 @@ public void removeFromQ(Thing thing)
 						queueRemoval(thing);
 					}
 				}
-			
 }

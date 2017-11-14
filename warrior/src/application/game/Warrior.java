@@ -2,6 +2,6 @@
 package application.game;
 
 
-public class Player {
+public class Warrior {
 //TODO BVP
 }
