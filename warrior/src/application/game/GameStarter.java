@@ -137,11 +137,11 @@ public void removeFromQ(Thing thing)
 }
 	public double getWarriorX()
 	{
-		return warrior.getX();
+		return warrior.getX_VALUE();
 	}
 	public double getWarriorY()
 	{
-		return warrior.getX();
+		return warrior.getY_VALUE();
 	}
 	public GameScreen getScreen()
 	{

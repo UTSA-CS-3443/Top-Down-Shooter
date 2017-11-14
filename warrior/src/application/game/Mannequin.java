@@ -2,10 +2,10 @@ package application.game;
 
 
 public class Mannequin {
-	int health = Health.ENEMY_HEALTH;
-	int X_VALUE;
-	int Y_VALUE;
-	boolean IS_TOUCHING = false;
+	private int health = Health.ENEMY_HEALTH;
+	private int X_VALUE;
+	private int Y_VALUE;
+	private boolean IS_TOUCHING = false;
 	 
 	public void setPosition(int x, int y) {
 		this.X_VALUE = x;
