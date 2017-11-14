@@ -17,5 +17,6 @@ public class Warrior {
 	}
 	public void setY_VALUE(int y) {
 		this.Y_VALUE = y;
-	} 
+	}
+	//add more stuff
 }
