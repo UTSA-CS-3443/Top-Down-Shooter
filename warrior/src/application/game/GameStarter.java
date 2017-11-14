@@ -254,7 +254,7 @@ public void removeFromQ(Thing thing)
 			gameLoop.play();
 			
 			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.ENEMY_SMALL_FIRE_RATE),e -> ) {
-				for(Thing thing : things)
+			for(Thing thing : things)
 					{
 						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();
 					}
