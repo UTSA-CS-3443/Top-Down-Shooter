@@ -18,8 +18,8 @@ public class GameStarter {
 	
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
-	private ArrayList<Enemy> enemy = new ArrayList<>();
-	private ArrayList<Projectiles> projectiles= new ArrayList<>();
+	private ArrayList<Mannequin> enemy = new ArrayList<>();
+	private ArrayList<Splash> splash= new ArrayList<>();
 	
 	ArrayList<Entity> entitiesToAdd = new ArrayList<>();
 	ArrayList<Entity> entitiesToRemove = new ArrayList<>();
@@ -202,5 +202,55 @@ public void removeFromQ(Thing thing)
 						queueRemoval(thing);
 					}
 				}
-				
+			}
+			if(Math.random() < Timing.ENEMY_SPAWN_CHANCE)
+			{
+				Math.random()< Timing.MANNEQUIN_PROPOTION)queueAddition(new Mannequin();
+			}
+			for(Splash splash : splashes)
+			{
+				if(splash instanceof PlayerProjectile)
+				{
+					for (Mannequin mann : manns)
+					{
+						if(splash.intersects(mannequin.getX(),Mannequin.getY(),mannequin.getWidth(),mannequin.getHeight()))
+						{
+							mannequin.subtractHealth(splash.getDamage());
+							queueRemoval(splash);
+							
+						}
+					}
+				}
+				if(splash instanceof MannquinProjectile
+						&& splash.intersects(player.getX(),player.getY(),
+								player.getWidth(),player.getHeight())
+						{
+					player.subtractHealth(splash.getDamage());
+					queueRemoval(splash);
+				}
+				if(splash.getY() < - splash.getHeight()
+						|| splash.getY() >ClassProportions.Screen_Height)
+					queueRemoval(splash);
+				}
+			for(Thing thing : thingsToRemove)
+			{
+				remove(thing);
+			}
+			thingsToRemove.clear();
+			for(Thing thing : thingsToAdd)
+			{
+				add(thing);
+			}
+			thingsToAdd.clear();
+			}));
+			gameLoop.setCycleCount(Timeline.INDEFINITE);
+			gameLoop.play();
+			
+			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.ENEMY_SMALL_FIRE_RATE),e -> ) {
+				for(Thing thing : things)
+					{
+						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();
+					}
+					}));
+			}
 }
