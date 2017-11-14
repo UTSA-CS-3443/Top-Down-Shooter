@@ -156,7 +156,33 @@ public void removeFromQ(Thing thing)
 	}
 	private void stop()
 	{
+		gameLoop.stop();
+		enemyLoop();
 	}
 	
-	
+	private void restart()
+	{
+		Thing.clear();
+		ThingToAdd.clear();
+		ThingToRemove.clear();
+		mannequin.clear();
+		Splash.clear();
+		
+		addToQ(new Player());
+		
+		setupScreen(new GameScreen());
+		
+		play();
+	}
+	private void setupTime()
+	{
+		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK), e->) {
+			for (Thing thing : thing)
+			{
+				thing.doTick();
+				
+				if(Thing instanceof Enemy)
+			}
+				)
+	}
 }
