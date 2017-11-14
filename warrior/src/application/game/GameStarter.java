@@ -68,11 +68,11 @@ public class GameStarter {
 				case ESCAPE:
 					pause();
 			}
-		}catch(NULLPointerException ex) {
+		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
 		}	
 		});
-		}
+		
 		scene.setOnKeyReleased(e ->{
 			try{
 				switch(e.getCode()) {
@@ -181,8 +181,23 @@ public void removeFromQ(Thing thing)
 			{
 				thing.doTick();
 				
-				if(Thing instanceof Enemy)
-			}
-				)
-	}
+				if(thing instanceof Enemy)
+				{
+					if()((Enemy)thing).getHealth()<=0)
+				{
+					removeQ(thing);
+				}
+				}
+				if(thing instanceof Player)
+				{
+					if(((Mob)thing).getHealth() <=0)
+					{
+						gameOver();
+						
+						queueRemoval(thing);
+					}
+				}
+				}
+
+			
 }
