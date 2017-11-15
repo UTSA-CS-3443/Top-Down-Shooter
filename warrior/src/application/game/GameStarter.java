@@ -1,6 +1,10 @@
 package application.game;
 
+import java.io.File;
 import javafx.scene.Scene;
+import application.ClassProportions;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 import java.util.ArrayList;
 
@@ -13,32 +17,34 @@ public class GameStarter {
 	private Scene scene;
 
 	private Timeline gameLoop;
-	private Timeline MannequinAttack;
+	private Timeline smallEnemyAttack;
+	private Timeline bigEnemeyAttack;
 	
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Mannequin> enemy = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
-	ArrayList<Thing> entitiesToAdd = new ArrayList<>();
-	ArrayList<Thing> entitiesToRemove = new ArrayList<>();
-	ArrayList<Splash> splashToAdd = new ArrayList<>();
-	ArrayList<Splash> splashToRemove = new ArrayList<>();
+	ArrayList<Entity> entitiesToAdd = new ArrayList<>();
+	ArrayList<Entity> entitiesToRemove = new ArrayList<>();
+	ArrayList<Particles> explosionToAdd = new ArrayList<>();
+	ArrayList<Particles> explosionsToRemove = new ArrayList<>();
 	
 	
 	public GameStarter()
 	{
 		screen = new GameScreen();
 		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
+		scene = new Scene(screen,ClassProportions.WINDOW_W, ClassProportions.WINDOW_H);
 		setupScene(screen);
-		setupKeybinds();
+		setupKeyMovement();
 		
 		add(warrior);
 		
 		setupTimesLines();
 		
 		displayHelp();
-		
+	}
 		private void setupScene(GameScreen screen)
 		{
 			this.screen = screen;
@@ -50,6 +56,8 @@ public class GameStarter {
 		private void setupKeyMovement()
 		{
 			scene.setOnKeyPressed(e -> {
+				try {
+					switch(e.getCode()) {
 				case A:
 					warrior.Move(Direction.LEFT);
 					break;
@@ -71,9 +79,7 @@ public class GameStarter {
 			}
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
-			System.err.println("player doesnt exist");
 		}catch(NULLPointerException ex) {
-			System.err.println("warrior doesnt exist");
 			System.err.println("warrior doesnt exist");
 		}	
 		});
@@ -98,7 +104,7 @@ public class GameStarter {
 			catch(NullPointerException ex) {
 				System.err.println("warrior doesnt exists");
 			}	
-				});
+				}});
 	}
 	
 	private void add(Thing thing)
