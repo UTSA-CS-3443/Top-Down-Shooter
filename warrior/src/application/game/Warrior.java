@@ -14,6 +14,9 @@ public class Warrior extends Mob {
 	protected boolean moveRight = false;
 	protected boolean moveUp = false;
 	protected boolean moveDown = false;
+	//need to create a timing class
+	protected double deltaX = Timing.PLAYER_DELTA_X;
+	protected double deltaY = Timing.PLAYER_DELTA_Y;
 	
 	private int health = Health.PLAYER_HEALTH;
 	
@@ -29,9 +32,9 @@ public class Warrior extends Mob {
 	public void setY_VALUE(int y) {
 		this.Y_VALUE = y;
 	}
-	public void Move(Direction dir)
+	public void Move(KeyBoard key)
 	{
-		switch(dir) {
+		switch(key) {
 		case W:
 			moveUp = true;
 			break;
@@ -89,5 +92,29 @@ public class Warrior extends Mob {
 			}
 		}
 		if (moveUp ^ moveDown)
+		{
+			if(moveUp)
+			{
+				if(getY() >=(deltaY + height)) setY(getY() - deltay);
+				else setY(height);
+			}
+			if(moveDown)
+			{
+				if(getY() < (ClassProportions.SCREEN_HEIGHT - height -deltay))
+					setY(getY()+deltaY);
+				else setY(ClassProportions.SCREEN_HEIGHT - height - deltaY)
+			}
+		}
+	}
+	public void doTick()
+	{
+		doMove();
+		
+		if(moveLeft ^ moveRight)
+		{
+			//views of the sprites if we need it
+			if(moveLeft)setImage(leftView);
+			if(moveRight)setImage(rightView);
+		}else setImage(view);
 	}
 }
