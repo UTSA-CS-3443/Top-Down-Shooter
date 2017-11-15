@@ -25,10 +25,10 @@ public class GameStarter {
 	private ArrayList<Mannequin> enemy = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
-	ArrayList<Entity> entitiesToAdd = new ArrayList<>();
-	ArrayList<Entity> entitiesToRemove = new ArrayList<>();
-	ArrayList<Particles> explosionToAdd = new ArrayList<>();
-	ArrayList<Particles> explosionsToRemove = new ArrayList<>();
+	ArrayList<Thing> entitiesToAdd = new ArrayList<>();
+	ArrayList<Thing> entitiesToRemove = new ArrayList<>();
+	ArrayList<Splash> explosionToAdd = new ArrayList<>();
+	ArrayList<Splash> explosionsToRemove = new ArrayList<>();
 	
 	
 	public GameStarter()
@@ -41,9 +41,9 @@ public class GameStarter {
 		
 		add(warrior);
 		
-		setupTimesLines();
+		setupTime();
 		
-		displayHelp();
+
 	}
 		private void setupScene(GameScreen screen)
 		{
@@ -59,16 +59,16 @@ public class GameStarter {
 				try {
 					switch(e.getCode()) {
 				case A:
-					warrior.Move(Direction.LEFT);
+					warrior.Move(ClassProportions.A);
 					break;
 				case D:
-					warrior.Move(Direction.RIGHT);
+					warrior.Move(ClassProportions.D);
 					break;
 				case W:
-					warrior.Move(Direction.UP);
+					warrior.Move(ClassProportions.W);
 					break;
 				case S:
-					warrior.Move(Direction.DOWN);
+					warrior.Move(ClassProportions.S);
 					break;
 				case SPACE:
 					warrior.fire();
