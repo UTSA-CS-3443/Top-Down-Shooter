@@ -3,6 +3,7 @@ package application.game;
 
 import application.ClassProportions;
 import javafx.scene.image.Image;
+import application.game.KeyBoard;
 
 
 public class Warrior extends Mob {
@@ -49,9 +50,9 @@ public class Warrior extends Mob {
 			break;
 		}
 	}
-	public void stop(Direction dir)
+	public void stop(KeyBoard key)
 	{
-		switch(dir)
+		switch(key)
 		{
 		case W:
 			moveUp = false;
@@ -69,7 +70,8 @@ public class Warrior extends Mob {
 	}
 	public void fireSplash()
 	{
-		((GameScreen)getParent()).getEngine().queueToAdd(
+		// javafx.scene.Node.getParent and then get
+		((GameScreen)getParent()).getStarter().queueToAdd(
 				new PlayerSplash(
 						//getCenterX and stuff should be in thing
 						getCenterX() - (ClassProportions.PROJECTILE_PLAYER_WIDTH / 2),

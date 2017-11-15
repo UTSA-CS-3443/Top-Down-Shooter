@@ -7,5 +7,8 @@ public class GameScreen {
 		
 	}
 	//TODO BVP
-
+	public void getStarter()
+	{
+		
+	}
 }

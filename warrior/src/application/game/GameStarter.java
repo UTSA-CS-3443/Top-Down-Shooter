@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import com.sun.javafx.scene.traversal.Direction;
 
 import javafx.animation.Timeline;
-
+import application.game.KeyBoard;
 public class GameStarter {
 	private GameScreen screen;
 	private Scene scene;
@@ -59,29 +59,26 @@ public class GameStarter {
 				try {
 					switch(e.getCode()) {
 				case A:
-					warrior.Move(ClassProportions.A);
+					warrior.Move(KeyBoard.A);
 					break;
 				case D:
-					warrior.Move(ClassProportions.D);
+					warrior.Move(KeyBoard.D);
 					break;
 				case W:
-					warrior.Move(ClassProportions.W);
+					warrior.Move(KeyBoard.W);
 					break;
 				case S:
-					warrior.Move(ClassProportions.S);
+					warrior.Move(KeyBoard.S);
 					break;
 				case SPACE:
-					warrior.fire();
+					warrior.fireSplash();
 					break;
 				case ESCAPE:
 					pause();
 			}
-			}
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
-		}catch(NULLPointerException ex) {
-			System.err.println("warrior doesnt exist");
-		}	
+		}
 		});
 		
 		scene.setOnKeyReleased(e ->{
