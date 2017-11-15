@@ -22,5 +22,28 @@ public class Splash extends Thing {
 		setX(startX);
 		setY(startY);
 	}
+	public double getdX() {
+		return dX;
+	}
+	public void setDX(double dX) {
+		this.dX = dX;
+	}
+	public void setDY(double dY) {
+		this.dY = dY;
+	}
+	public int getDamage() {
+		return damage;
+	}
+	public int setDamage(int damage) {
+		this.damage = damage;
+	}
+	protected void doMov() {
+		setX(getX() - dX);
+		setY(getX() - dY);
+	}
 	
+	@Override
+	public void tick() {
+		doMov();
+	}
 }
