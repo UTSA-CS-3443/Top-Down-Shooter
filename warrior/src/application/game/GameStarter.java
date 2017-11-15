@@ -84,24 +84,26 @@ public class GameStarter {
 			try{
 				switch(e.getCode()) {
 				case A:
-					warrior.Stop(Direction.LEFT);
+					warrior.stop(KeyBoard.A);
 					break;
 				case D:
-					warrior.Stop(Direction.RIGHT);
+					warrior.stop(KeyBoard.D);
 					break;
 				case W:
-					warrior.Stop(Direction.UP);
+					warrior.stop(KeyBoard.W);
 					break;
 				case S:
-					warrior.Stop(Direction.DOWN);
+					warrior.stop(KeyBoard.S);
 					break;
 				}
-			}
-			catch(NullPointerException ex) {
+			
+		}catch(NullPointerException ex) {
 				System.err.println("warrior doesnt exists");
 			}	
-				}});
-	}
+				
+		});
+		}
+	
 	
 	private void add(Thing thing)
 	{
