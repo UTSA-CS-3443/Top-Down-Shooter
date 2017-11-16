@@ -19,7 +19,7 @@ public class Warrior extends Mob {
 	protected double deltaX = Timing.WARRIOR_DELTA_X;
 	protected double deltaY = Timing.WARRIOR_DELTA_Y;
 	
-	private int health = Health.PLAYER_HEALTH;
+	private int health = Health.WARRIOR_HEALTH;
 	
 	public int getX_VALUE() {
 		return this.X_VALUE;

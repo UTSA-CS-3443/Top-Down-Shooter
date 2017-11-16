@@ -1,7 +1,7 @@
 package application.game;
 
 
-public class Mannequin {
+public abstract class Mannequin extends Mob {
 	private int health = Health.MANNEQUIN_HEALTH;
 	private int X_VALUE;
 	private int Y_VALUE;
