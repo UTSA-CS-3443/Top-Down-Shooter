@@ -10,6 +10,4 @@ public class Splash extends Thing {
 		super();
 		this.damage = damage;
 	}
-
-
 }

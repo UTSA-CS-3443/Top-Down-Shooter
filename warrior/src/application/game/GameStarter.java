@@ -34,7 +34,6 @@ public class GameStarter {
 	public GameStarter()
 	{
 		screen = new GameScreen();
-		scene = new Scene(pane,Dimensions.SCREEN_WIDTH, Dimensions.SCREEN_HEIGHT);
 		scene = new Scene(screen,ClassProportions.WINDOW_W, ClassProportions.WINDOW_H);
 		setupScene(screen);
 		setupKeyMovement();
@@ -119,7 +118,7 @@ public class GameStarter {
 		}
 		if(thing instanceof Splash)splash.add((Splash)thing);
 		screen.getChildren().add(thing);
-}
+	}
 	private void remove(Thing thing)
 	{
 		if (thing instanceof Enemy)
