@@ -3,13 +3,15 @@ package application.game;
 
 import application.ClassProportions;
 import javafx.scene.image.Image;
+import me.zx96.piupiu.Dimensions;
 import application.game.KeyBoard;
+import application.game.Timing;
+import application.game.GameScreen;
+import application.game.Health;
 
 
 public class Warrior extends Mob {
 
-	private int X_VALUE;
-	private int Y_VALUE;
 	
 	protected boolean moveLeft = false;
 	protected boolean moveRight = false;
@@ -19,20 +21,16 @@ public class Warrior extends Mob {
 	protected double deltaX = Timing.WARRIOR_DELTA_X;
 	protected double deltaY = Timing.WARRIOR_DELTA_Y;
 	
-	private int health = Health.PLAYER_HEALTH;
+	public Warrior() {
+		super(Resources.SPR_WARRIOR, ClassProportions.WARRIOR_W,
+				ClassProportions.WARRIOR_H, Health.WARRIOR_HEALTH);
+		setPosition();
+	}
+	private void setPosition() {
+        setX((ClassProportions.WINDOW_W - ClassProportions.WARRIOR_W) / 2);
+        setY(ClassProportions.WINDOW_H - ClassProportions.WARRIOR_H);
+    }
 	
-	public int getX_VALUE() {
-		return this.X_VALUE;
-	}
-	public void setX_VALUE(int x) {
-		this.X_VALUE = x;
-	}
-	public int getY_VALUE() {
-		return this.Y_VALUE;
-	}
-	public void setY_VALUE(int y) {
-		this.Y_VALUE = y;
-	}
 	public void Move(KeyBoard key)
 	{
 		switch(key) {
@@ -72,7 +70,7 @@ public class Warrior extends Mob {
 	{
 		// javafx.scene.Node.getParent and then get
 		((GameScreen)getParent()).getStarter().queueToAdd(
-				new PlayerSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
+				new WarriorSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
 						getY() - ClassProportions.SPLASH_WARRIOR_H)
 					
 				);
@@ -86,23 +84,23 @@ public class Warrior extends Mob {
 			}
 			if(moveRight)
 			{
-				if(getX() < (ClassProportions.SCREEN_W - width - deltaX))
+				if(getX() < (ClassProportions.WINDOW_W - width - deltaX))
 					setX(getX() + deltaX);
-				else setX(ClassProportions.SCREEN_W - width - deltaX);
+				else setX(ClassProportions.WINDOW_W - width - deltaX);
 			}
 		}
 		if (moveUp ^ moveDown)
 		{
 			if(moveUp)
 			{
-				if(getY() >=(deltaY + height)) setY(getY() - deltay);
+				if(getY() >=(deltaY + height)) setY(getY() - deltaY);
 				else setY(height);
 			}
 			if(moveDown)
 			{
-				if(getY() < (ClassProportions.SCREEN_HEIGHT - height -deltay))
+				if(getY() < (ClassProportions.WINDOW_H - height -deltaY))
 					setY(getY()+deltaY);
-				else setY(ClassProportions.SCREEN_HEIGHT - height - deltaY)
+				else setY(ClassProportions.WINDOW_H - height - deltaY);
 			}
 		}
 	}
