@@ -22,6 +22,10 @@ public abstract class Mob extends Thing{
 	public Mob(String sprWarrior, double warriorW, double warriorH, int warriorHealth) {
 		// TODO Auto-generated constructor stub
 		// added by BVP
+		super(sprWarrior, warriorW, warriorH);
+		this.maxHealth = warriorHealth;
+		healthProperty.set(warriorHealth);
+		
 	}
 
 	public int getMaxHEalth()
