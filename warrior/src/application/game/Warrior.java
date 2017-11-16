@@ -119,8 +119,8 @@ public class Warrior extends Mob {
 		if(moveLeft ^ moveRight)
 		{
 			//views of the sprites if we need it
-			if(moveLeft)setImage(leftView);
-			if(moveRight)setImage(rightView);
-		}else setImage(view);
+			if(moveLeft)setImage(leftSprite);
+			if(moveRight)setImage(rightSprite);
+		}else setImage(sprite);
 	}
 }
