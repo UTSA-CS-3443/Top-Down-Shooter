@@ -77,13 +77,12 @@ public class Warrior extends Mob {
 	public void fireSplash()
 	{
 		// javafx.scene.Node.getParent and then get
-		((GameScreen)getParent()).getStarter().addToQ(
+		((GameScreen)getParent()).getStarter().queueToAdd(
 				new WarriorSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
 						getY() - ClassProportions.SPLASH_WARRIOR_H)
 					
 				);
 	}
-	
 	protected void doMove()
 	{
 		if(moveLeft ^ moveRight) {
@@ -113,7 +112,7 @@ public class Warrior extends Mob {
 			}
 		}
 	}
-	public void doTick()
+	public void Tick()
 	{
 		doMove();
 		

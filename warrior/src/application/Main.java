@@ -11,7 +11,10 @@ import javafx.scene.layout.BorderPane;
 
 public class Main extends Application {
 	
-
+	public static void main (String [] args)
+	{
+		launch(args);
+	}
 public void start(Stage primaryStage) {
         
         //Set up the game window
@@ -21,8 +24,5 @@ public void start(Stage primaryStage) {
         primaryStage.setScene(starter.getScene());
         primaryStage.show();
     }
-public static void main (String [] args)
-{
-	launch(args);
-}
+
 }

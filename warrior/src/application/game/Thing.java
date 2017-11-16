@@ -39,6 +39,9 @@ import javafx.scene.image.ImageView;
 	        setFitHeight(height);
 	        setFitWidth(width);
 	    }
+	    public Thing( String nameOfSprite, double width, double height, int i) {
+	    	//dunno if we need this overloaded method - BVP
+	    }
 	    
 	    
 	    public double getWidth() {
