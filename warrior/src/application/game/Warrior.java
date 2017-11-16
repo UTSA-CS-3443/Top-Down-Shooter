@@ -83,6 +83,7 @@ public class Warrior extends Mob {
 					
 				);
 	}
+	
 	protected void doMove()
 	{
 		if(moveLeft ^ moveRight) {
