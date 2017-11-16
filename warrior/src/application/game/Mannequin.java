@@ -6,6 +6,8 @@ public abstract class Mannequin extends Mob {
 	private int X_VALUE;
 	private int Y_VALUE;
 	private boolean IS_TOUCHING = false;
+	
+	protected KeyBoard dir;
 	 
 	public void setPosition(int x, int y) {
 		this.X_VALUE = x;
