@@ -2,6 +2,7 @@ package application.game;
 
 
 public abstract class Mannequin extends Mob {
+	private double height = 1.0;
 	private int health = Health.MANNEQUIN_HEALTH;
 	private int X_VALUE;
 	private int Y_VALUE;
@@ -31,4 +32,5 @@ public abstract class Mannequin extends Mob {
 	public void takeDamage() {
 		this.health = this.health - Health.MANNEQUIN_HEALTH_DMG;
 	}
+
 }

@@ -1,14 +1,16 @@
 package application.game;
 
 import java.io.File;
-import java.time.Duration;
+import javafx.util.Duration;
 
 import javafx.scene.Scene;
+
 import application.ClassProportions;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import java.util.ArrayList;
+
 
 import com.sun.javafx.scene.traversal.Direction;
 
@@ -142,11 +144,11 @@ public void removeFromQ(Thing thing)
 }
 	public double getWarriorX()
 	{
-		return warrior.getX_VALUE();
+		return warrior.getX();
 	}
 	public double getWarriorY()
 	{
-		return warrior.getY_VALUE();
+		return warrior.getY();
 	}
 	public GameScreen getScreen()
 	{
@@ -188,81 +190,84 @@ public void removeFromQ(Thing thing)
 		play();
 	}
 	private void setupTime()
-	{
-		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e-> {
-			for (Thing thing : thing)
-			{
-				thing.doTick();
-				
-				if(thing instanceof Enemy)
-				{
-					if(((Enemy)thing).getHealth()<=0)
-				{
-					removeQ(thing);
-				}
-				
-				if(thing instanceof Player)
-				{
-					if(((Mob)thing).getHealth() <=0)
-					{
-						gameOver();
-						
-						queueRemoval(thing);
-					}
-				}
-			}
-		}
-			if(Math.random() < Timing.MANNEQUIN_SPAWNING)
-			{
-				Math.random() < Timing.MANNEQUIN_PROPORTION)addToQ(new Mannequin();
-			}
-		
-			for(Splash splash : splashes)
-			{
-				if(splash instanceof SplashProjectile)
-				{
-					for (Mannequin mann : manns)
-					{
-						if(splash.intersects(mannequin.getX(),Mannequin.getY(),mannequin.getWidth(),mannequin.getHeight()))
-						{
-							mannequin.subtractHealth(splash.getDamage());
-							removeFromQ(splash);
-							
-						}
-					}
-				}
-				if(splash instanceof MannqeuinSplash
-						&& splash.intersects(warrior.getX(),warrior.getY(),
-								warrior.getWidth(),warrior.getHeight())
-						{
-					warrior.subtractHealth(splash.getDamage());
-					removeFromQ(splash);
-				}
-				if(splash.getY() < - splash.getHeight()
-						|| splash.getY() >ClassProportions.WINDOW_H)
-					removeFromQ(splash);
-				}
-			for(Thing thing : thingsToRemove)
-			{
-				remove(thing);
-			}
-			thingsToRemove.clear();
-			for(Thing thing : thingsToAdd)
-			{
-				add(thing);
-			}
-			thingsToAdd.clear();
-	
-			gameLoop.setCycleCount(Timeline.INDEFINITE);
-			gameLoop.play();
-			
-			mannequinLoop = new Timeline(new KeyFrame(Duration.ofMillis(Timing.MANNEQUIN_FIRE_RATE),e -> ) {
-			for(Thing thing : things)
-					{
-						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();
-					}
-					}));
-			
- 
-		}
+{
+        
+        gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e -> {
+            //Tick for every entity
+            for (Thing thing : things) {
+                thing.Tick();
+                
+                //Check if the entity's health is zero
+                if (thing instanceof Mannequin) {
+                    if (((Mannequin)thing).getHealth() <= 0) {
+
+                        removeFromQ(thing);
+                    }
+       
+                }
+                if (thing instanceof Warrior) {
+                    //Display "GAME OVER" if player died
+                    if (((Mob)thing).getHealth() <= 0) {
+
+                        removeFromQ(thing);
+                    }
+                }
+            }
+            
+            //Randomly spawn a new enemy
+            if (Math.random() < Timing.MANNEQUIN_SPAWNING) {
+                 addToQ(new Mannequin());
+            }
+            
+            //Detect collisions and remove any Projectiles that went outside the GamePane
+            for (Splash splash : splashes) {
+                //PlayerProjectiles colliding with Enemies
+                if (splash instanceof WarriorSplash) {
+                    for (Mannequin mannequin : mannequins) {
+                        if (splash.intersects(mannequins.getX_VALUE(), mannequins.getY_VALUE(),
+                                mannequins.getWidth(), mannequins.getHeight())) {
+                            mannequin.subtractHealth(splash.getDamage());
+                            qToRemove(splash);
+                        }
+                    }
+                }
+                //EnemyProjectiles colliding with the Player
+                if (splash instanceof MannequinSplash
+                        && splash.intersects(warrior.getX(), warrior.getY(),
+                        warrior.getWidth(), warrior.getHeight())) {
+                    warrior.subtractHealth(splash.getDamage());
+                    removeFromQ(splash);
+                }
+                //Remove any that are outside the play area
+                if (splash.getY() < -splash.getHeight() 
+                        || splash.getY() > ClassProportions.WINDOW_H)
+                    addToQ(splash);
+            }
+            
+            //Remove Entities queued for removal
+            for (Thing thing : thingsToRemove) {
+                remove(thing);
+            }
+            //And clear the list to start fresh next cycle
+            thingsToRemove.clear();
+            //Same thing for those queued for addition
+            for (Thing thing : thingsToAdd) {
+                add(thing);
+            }
+            thingsToAdd.clear();
+            
+        }));
+        gameLoop.setCycleCount(Timeline.INDEFINITE);
+        gameLoop.play();
+        
+        mannequinLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE), e -> {
+            for (Thing thing : things) {
+                if (thing instanceof Mannequin) ((Mannequin)thing).fireSplash();
+            }
+        }));
+        mannequinLoop.setCycleCount(Timeline.INDEFINITE);
+        mannequinLoop.play();
+        
+  
+    }
 }
