@@ -7,6 +7,7 @@ import application.game.KeyBoard;
 import application.game.Timing;
 import application.game.GameScreen;
 import application.game.Health;
+import application.game.Resources;
 
 
 public class Warrior extends Mob {
