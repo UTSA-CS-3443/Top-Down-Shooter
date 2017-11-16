@@ -2,7 +2,7 @@ package application.game;
 
 
 public class Mannequin {
-	private int health = Health.ENEMY_HEALTH;
+	private int health = Health.MANNEQUIN_HEALTH;
 	private int X_VALUE;
 	private int Y_VALUE;
 	private boolean IS_TOUCHING = false;
@@ -22,5 +22,11 @@ public class Mannequin {
 	}
 	public boolean getTouch() {
 		return this.IS_TOUCHING;
+	}
+	public int getHealth() {
+		return this.health;
+	}
+	public void takeDamage() {
+		this.health = this.health - Health.MANNEQUIN_HEALTH_DMG;
 	}
 }
