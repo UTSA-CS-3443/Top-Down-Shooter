@@ -20,6 +20,11 @@ public class Warrior extends Mob {
 	protected double deltaX = Timing.WARRIOR_DELTA_X;
 	protected double deltaY = Timing.WARRIOR_DELTA_Y;
 	
+	private static Image leftSprite = new Image(Resources.SPR_WARRIOR, 
+			ClassProportions.WARRIOR_W, ClassProportions.WARRIOR_H, false, false);
+    private static Image rightSprite = new Image(Resources.SPR_WARRIOR, 
+    		ClassProportions.WARRIOR_W, ClassProportions.WARRIOR_H, false, false);
+	
 	public Warrior() {
 		super(Resources.SPR_WARRIOR, ClassProportions.WARRIOR_W,
 				ClassProportions.WARRIOR_H, Health.WARRIOR_HEALTH);
