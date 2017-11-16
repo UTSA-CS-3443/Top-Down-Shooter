@@ -76,6 +76,8 @@ public class GameStarter {
 					break;
 				case ESCAPE:
 					pause();
+default:
+	break;
 			}
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
@@ -97,6 +99,8 @@ public class GameStarter {
 				case S:
 					warrior.stop(KeyBoard.S);
 					break;
+default:
+	break;
 				}
 			
 		}catch(NullPointerException ex) {
@@ -194,14 +198,14 @@ public void removeFromQ(Thing thing)
 	}
 	private void setupTime()
 	{
-		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK), e->) {
+		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e->) {
 			for (Thing thing : thing)
 			{
 				thing.doTick();
 				
 				if(thing instanceof Enemy)
 				{
-					if()((Enemy)thing).getHealth()<=0)
+					if(((Enemy)thing).getHealth()<=0)
 				{
 					removeQ(thing);
 				}
@@ -222,7 +226,7 @@ public void removeFromQ(Thing thing)
 			}
 			for(Splash splash : splashes)
 			{
-				if(splash instanceof PlayerProjectile)
+				if(splash instanceof SplashProjectile)
 				{
 					for (Mannequin mann : manns)
 					{
@@ -235,10 +239,10 @@ public void removeFromQ(Thing thing)
 					}
 				}
 				if(splash instanceof MannquinProjectile
-						&& splash.intersects(player.getX(),player.getY(),
-								player.getWidth(),player.getHeight())
+						&& splash.intersects(warrior.getX(),warrior.getY(),
+								warrior.getWidth(),warrior.getHeight())
 						{
-					player.subtractHealth(splash.getDamage());
+					warrior.subtractHealth(splash.getDamage());
 					queueRemoval(splash);
 				}
 				if(splash.getY() < - splash.getHeight()
@@ -259,7 +263,7 @@ public void removeFromQ(Thing thing)
 			gameLoop.setCycleCount(Timeline.INDEFINITE);
 			gameLoop.play();
 			
-			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.ENEMY_SMALL_FIRE_RATE),e -> ) {
+			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE),e -> ) {
 			for(Thing thing : things)
 					{
 						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();
