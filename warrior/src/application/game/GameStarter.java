@@ -1,6 +1,8 @@
 package application.game;
 
 import java.io.File;
+import java.time.Duration;
+
 import javafx.scene.Scene;
 import application.ClassProportions;
 import java.util.InputMismatchException;
@@ -10,6 +12,7 @@ import java.util.ArrayList;
 
 import com.sun.javafx.scene.traversal.Direction;
 
+import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import application.game.KeyBoard;
 public class GameStarter {
@@ -17,18 +20,17 @@ public class GameStarter {
 	private Scene scene;
 
 	private Timeline gameLoop;
-	private Timeline smallEnemyAttack;
-	private Timeline bigEnemeyAttack;
+	private Timeline mannequinLoop;
 	
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
-	private ArrayList<Mannequin> enemy = new ArrayList<>();
+	private ArrayList<Mannequin> mannequin = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
-	ArrayList<Thing> entitiesToAdd = new ArrayList<>();
-	ArrayList<Thing> entitiesToRemove = new ArrayList<>();
-	ArrayList<Splash> explosionToAdd = new ArrayList<>();
-	ArrayList<Splash> explosionsToRemove = new ArrayList<>();
+	ArrayList<Thing> thingsToAdd = new ArrayList<>();
+	ArrayList<Thing> thingsToRemove = new ArrayList<>();
+	ArrayList<Splash> splashToAdd = new ArrayList<>();
+	ArrayList<Splash> splashToRemove = new ArrayList<>();
 	
 	
 	public GameStarter()
@@ -74,6 +76,8 @@ public class GameStarter {
 					break;
 				case ESCAPE:
 					pause();
+default:
+	break;
 			}
 		}catch(NullPointerException ex) {
 			System.err.println("player doesnt exist");
@@ -84,24 +88,28 @@ public class GameStarter {
 			try{
 				switch(e.getCode()) {
 				case A:
-					warrior.Stop(Direction.LEFT);
+					warrior.stop(KeyBoard.A);
 					break;
 				case D:
-					warrior.Stop(Direction.RIGHT);
+					warrior.stop(KeyBoard.D);
 					break;
 				case W:
-					warrior.Stop(Direction.UP);
+					warrior.stop(KeyBoard.W);
 					break;
 				case S:
-					warrior.Stop(Direction.DOWN);
+					warrior.stop(KeyBoard.S);
 					break;
+default:
+	break;
 				}
-			}
-			catch(NullPointerException ex) {
+			
+		}catch(NullPointerException ex) {
 				System.err.println("warrior doesnt exists");
 			}	
-				}});
-	}
+				
+		});
+		}
+	
 	
 	private void add(Thing thing)
 	{
@@ -111,18 +119,18 @@ public class GameStarter {
 			warrior =(Warrior)thing;
 			screen.getHealth(warrior.health());
 	}
-		if(thing instanceof Enemy)
+		if(thing instanceof Mannequin)
 		{
-			enemies.add((Enemy)thing);
-			screen.getChildren().add(((Enemy)thing).getHealthBar());
+			mannequin.add((Mannequin)thing);
+			screen.getChildren().add(((mannequin)thing).getHealthBar());
 		}
 		if(thing instanceof Splash)splash.add((Splash)thing);
 		screen.getChildren().add(thing);
 	}
 	private void remove(Thing thing)
 	{
-		if (thing instanceof Enemy)
-			screen.getChildren().remove(((Enemy)thing)getHealthBar());
+		if (thing instanceof mannequin)
+			screen.getChildren().remove(((Mannequin)thing)getHealthBar());
 		Thing.remove(thing);
 		Thing.remove(thing);
 		Splash.remove(thing);
@@ -150,21 +158,22 @@ public void removeFromQ(Thing thing)
 	}
 	public Scene getScene()
 	{
+		return scene;
 	}
 	private void pause()
 	{
 		gameLoop.pause();
-		enemyLoop.pause();
+		mannequinLoop.pause();
 	}
 	private void play()
 	{
 		gameLoop.play();
-		enemyLoop.play();
+		mannequinLoop.play();
 	}
 	private void stop()
 	{
 		gameLoop.stop();
-		enemyLoop();
+		mannequinLoop();
 	}
 	
 	private void restart()
@@ -189,14 +198,14 @@ public void removeFromQ(Thing thing)
 	}
 	private void setupTime()
 	{
-		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK), e->) {
+		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e->) {
 			for (Thing thing : thing)
 			{
 				thing.doTick();
 				
 				if(thing instanceof Enemy)
 				{
-					if()((Enemy)thing).getHealth()<=0)
+					if(((Enemy)thing).getHealth()<=0)
 				{
 					removeQ(thing);
 				}
@@ -217,7 +226,7 @@ public void removeFromQ(Thing thing)
 			}
 			for(Splash splash : splashes)
 			{
-				if(splash instanceof PlayerProjectile)
+				if(splash instanceof SplashProjectile)
 				{
 					for (Mannequin mann : manns)
 					{
@@ -230,10 +239,10 @@ public void removeFromQ(Thing thing)
 					}
 				}
 				if(splash instanceof MannquinProjectile
-						&& splash.intersects(player.getX(),player.getY(),
-								player.getWidth(),player.getHeight())
+						&& splash.intersects(warrior.getX(),warrior.getY(),
+								warrior.getWidth(),warrior.getHeight())
 						{
-					player.subtractHealth(splash.getDamage());
+					warrior.subtractHealth(splash.getDamage());
 					queueRemoval(splash);
 				}
 				if(splash.getY() < - splash.getHeight()
@@ -254,7 +263,7 @@ public void removeFromQ(Thing thing)
 			gameLoop.setCycleCount(Timeline.INDEFINITE);
 			gameLoop.play();
 			
-			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.ENEMY_SMALL_FIRE_RATE),e -> ) {
+			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE),e -> ) {
 			for(Thing thing : things)
 					{
 						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();

@@ -21,4 +21,8 @@ public void start(Stage primaryStage) {
         primaryStage.setScene(starter.getScene());
         primaryStage.show();
     }
+public static void main (String [] args)
+{
+	launch(args);
+}
 }

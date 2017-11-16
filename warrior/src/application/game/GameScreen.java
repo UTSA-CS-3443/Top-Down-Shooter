@@ -21,4 +21,8 @@ public class GameScreen extends Pane {
 	public GameStarter getStarter(){
 		return this.starter;
 	}
+	public GameStarter getChildren() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
