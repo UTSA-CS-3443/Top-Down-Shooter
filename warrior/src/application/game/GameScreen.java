@@ -11,4 +11,8 @@ public class GameScreen {
 	{
 		
 	}
+	public GameStarter getChildren() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
