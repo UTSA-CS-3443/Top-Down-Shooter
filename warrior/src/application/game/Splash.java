@@ -25,6 +25,11 @@ public class Splash extends Thing {
 		setX(startX);
 		setY(startY);
 	}
+	public Splash(String sprMannequin, double mannequinW, double mannequinH, int mannequinHealth, double mannequinX,
+			Object object) {
+		// TODO Auto-generated constructor stub
+	}
+
 	public double getdX() {
 		return dX;
 	}
@@ -51,6 +56,9 @@ public class Splash extends Thing {
 	}
 	public void fireSplash()
 	{
+		GameStarter starter = ((GameScreen)getParent()).getStarter();
+		MannequinSplash splash = new MannequinSplash(
+				(getX()+(width/2)), (getY()+height));
 		
 	}
 }
