@@ -16,8 +16,8 @@ public class Warrior extends Mob {
 	protected boolean moveUp = false;
 	protected boolean moveDown = false;
 	//need to create a timing class
-	protected double deltaX = Timing.PLAYER_DELTA_X;
-	protected double deltaY = Timing.PLAYER_DELTA_Y;
+	protected double deltaX = Timing.WARRIOR_DELTA_X;
+	protected double deltaY = Timing.WARRIOR_DELTA_Y;
 	
 	private int health = Health.PLAYER_HEALTH;
 	
@@ -72,10 +72,8 @@ public class Warrior extends Mob {
 	{
 		// javafx.scene.Node.getParent and then get
 		((GameScreen)getParent()).getStarter().queueToAdd(
-				new PlayerSplash(
-						//getCenterX and stuff should be in thing
-						getCenterX() - (ClassProportions.PROJECTILE_PLAYER_WIDTH / 2),
-						getY() - ClassProportions.PROJECTILE_PLAYER_HEIGHT)
+				new PlayerSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
+						getY() - ClassProportions.SPLASH_WARRIOR_H)
 					
 				);
 	}
