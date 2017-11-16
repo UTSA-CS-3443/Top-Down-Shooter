@@ -1,5 +1,7 @@
 package application.game;
 
+import application.game.Thing;
+
 public class Splash extends Thing {
 	
 	protected double dX = 0.0;
@@ -10,8 +12,7 @@ public class Splash extends Thing {
 		super();
 		this.damage = damage;
 	}
-<<<<<<< HEAD
-=======
+
 	public Splash(String name, double W, double H, int damage) {
 		super();
 		this.damage = damage;
@@ -36,7 +37,7 @@ public class Splash extends Thing {
 	public int getDamage() {
 		return damage;
 	}
-	public int setDamage(int damage) {
+	public void setDamage(int damage) {
 		this.damage = damage;
 	}
 	protected void doMov() {
@@ -45,7 +46,7 @@ public class Splash extends Thing {
 	}
 	
 	@Override
-	public void tick() {
+	public void Tick() {
 		doMov();
 	}
 	public void fireSplash()
