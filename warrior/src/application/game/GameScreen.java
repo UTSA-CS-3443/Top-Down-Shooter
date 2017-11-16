@@ -12,7 +12,6 @@ public class GameScreen extends Pane {
 	public GameScreen () {
 		this.setBackground(new Background(new BackgroundFill(Color.rgb(8, 8, 8), null, null)));
 	}
-	
 
 	public void setStarter(GameStarter gameStarter) {
 		this.starter = gameStarter;	
@@ -25,4 +24,5 @@ public class GameScreen extends Pane {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 }

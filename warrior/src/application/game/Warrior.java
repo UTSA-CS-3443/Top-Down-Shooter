@@ -3,7 +3,6 @@ package application.game;
 
 import application.ClassProportions;
 import javafx.scene.image.Image;
-import me.zx96.piupiu.Dimensions;
 import application.game.KeyBoard;
 import application.game.Timing;
 import application.game.GameScreen;
@@ -30,6 +29,9 @@ public class Warrior extends Mob {
         setX((ClassProportions.WINDOW_W - ClassProportions.WARRIOR_W) / 2);
         setY(ClassProportions.WINDOW_H - ClassProportions.WARRIOR_H);
     }
+
+	private int health = Health.WARRIOR_HEALTH;
+
 	
 	public void Move(KeyBoard key)
 	{

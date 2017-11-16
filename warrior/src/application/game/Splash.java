@@ -48,5 +48,8 @@ public class Splash extends Thing {
 	public void tick() {
 		doMov();
 	}
->>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
+	public void fireSplash()
+	{
+		
+	}
 }

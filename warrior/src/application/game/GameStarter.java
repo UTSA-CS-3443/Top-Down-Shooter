@@ -113,36 +113,32 @@ default:
 	
 	private void add(Thing thing)
 	{
-		Thing.add(thing);
+		things.add(thing);
 		if(thing instanceof Warrior)
 		{
 			warrior =(Warrior)thing;
-			screen.getHealth(warrior.health());
 	}
 		if(thing instanceof Mannequin)
 		{
 			mannequin.add((Mannequin)thing);
-			screen.getChildren().add(((mannequin)thing).getHealthBar());
 		}
 		if(thing instanceof Splash)splash.add((Splash)thing);
 		screen.getChildren().add(thing);
 	}
 	private void remove(Thing thing)
-	{
-		if (thing instanceof mannequin)
-			screen.getChildren().remove(((Mannequin)thing)getHealthBar());
-		Thing.remove(thing);
-		Thing.remove(thing);
-		Splash.remove(thing);
+	{	
+		things.remove(thing);
+		things.remove(thing);
+		splash.remove(thing);
 		screen.getChildren().remove(thing);	
 	}
 public void addToQ(Thing thing)
 {
-	ThingToAdd.add(thing);
+	thingsToAdd.add(thing);
 }
 public void removeFromQ(Thing thing)
 {
-	ThingToRemove.add(thing);
+	thingsToRemove.add(thing);
 }
 	public double getWarriorX()
 	{
@@ -173,32 +169,27 @@ public void removeFromQ(Thing thing)
 	private void stop()
 	{
 		gameLoop.stop();
-		mannequinLoop();
+		mannequinLoop.stop();
 	}
 	
 	private void restart()
 	{
-		Thing.clear();
-		ThingToAdd.clear();
-		ThingToRemove.clear();
+		things.clear();
+		thingsToAdd.clear();
+		thingsToRemove.clear();
 		mannequin.clear();
-		Splash.clear();
-
-
-		
-
-
+		splash.clear();
 		
 		addToQ(new Warrior());
 		
 
-		setupScreen(new GameScreen());
+		setupScene(new GameScreen());
 		
 		play();
 	}
 	private void setupTime()
 	{
-		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e->) {
+		gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e-> {
 			for (Thing thing : thing)
 			{
 				thing.doTick();
@@ -209,7 +200,7 @@ public void removeFromQ(Thing thing)
 				{
 					removeQ(thing);
 				}
-				}
+				
 				if(thing instanceof Player)
 				{
 					if(((Mob)thing).getHealth() <=0)
@@ -220,10 +211,12 @@ public void removeFromQ(Thing thing)
 					}
 				}
 			}
-			if(Math.random() < Timing.ENEMY_SPAWN_CHANCE)
+		}
+			if(Math.random() < Timing.MANNEQUIN_SPAWNING)
 			{
-				Math.random()< Timing.MANNEQUIN_PROPOTION)queueAddition(new Mannequin();
+				Math.random() < Timing.MANNEQUIN_PROPORTION)addToQ(new Mannequin();
 			}
+		
 			for(Splash splash : splashes)
 			{
 				if(splash instanceof SplashProjectile)
@@ -233,21 +226,21 @@ public void removeFromQ(Thing thing)
 						if(splash.intersects(mannequin.getX(),Mannequin.getY(),mannequin.getWidth(),mannequin.getHeight()))
 						{
 							mannequin.subtractHealth(splash.getDamage());
-							queueRemoval(splash);
+							removeFromQ(splash);
 							
 						}
 					}
 				}
-				if(splash instanceof MannquinProjectile
+				if(splash instanceof MannqeuinSplash
 						&& splash.intersects(warrior.getX(),warrior.getY(),
 								warrior.getWidth(),warrior.getHeight())
 						{
 					warrior.subtractHealth(splash.getDamage());
-					queueRemoval(splash);
+					removeFromQ(splash);
 				}
 				if(splash.getY() < - splash.getHeight()
-						|| splash.getY() >ClassProportions.Screen_Height)
-					queueRemoval(splash);
+						|| splash.getY() >ClassProportions.WINDOW_H)
+					removeFromQ(splash);
 				}
 			for(Thing thing : thingsToRemove)
 			{
@@ -259,15 +252,17 @@ public void removeFromQ(Thing thing)
 				add(thing);
 			}
 			thingsToAdd.clear();
-			}));
+	
 			gameLoop.setCycleCount(Timeline.INDEFINITE);
 			gameLoop.play();
 			
-			MannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE),e -> ) {
+			mannequinLoop = new Timeline(new KeyFrame(Duration.ofMillis(Timing.MANNEQUIN_FIRE_RATE),e -> ) {
 			for(Thing thing : things)
 					{
 						if(Thing instanceof Mannequin)((Mannequin)thing).fireSplash();
 					}
 					}));
-			}
+			
+ 
+		}
 }
