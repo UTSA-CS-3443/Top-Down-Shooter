@@ -41,6 +41,7 @@ public abstract class Enemy extends Mob {
 	public void setDir(Direction dir) {
 		this.dir = dir;
 	}
+	
 	public void doMovement() {
 		switch(dir) {
 		case LEFT:
