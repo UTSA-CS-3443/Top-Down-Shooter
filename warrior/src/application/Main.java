@@ -1,6 +1,10 @@
 package application;
 
 
+
+
+
+import entity.Warrior;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -22,6 +26,9 @@ public class Main extends Application {
 			//all of my stuff
 			primaryStage.setTitle("Paint Warrrior");
 			
+
+			Warrior warrior = new Warrior();   //BVP 1329 11/7
+
 			
 			
 			root.setId("pane");
@@ -34,44 +41,22 @@ public class Main extends Application {
 			    if(e.getCode() == KeyCode.D){
 			        newX = newX + 8;
 			        circle.setTranslateX(newX);
-			        System.out.println("Right");
 			    }
 			    else if(e.getCode() == KeyCode.A){
 			        newX = newX - 8;
 			        circle.setTranslateX(newX);
-			        System.out.println("Left");
 			    }
 			    else if(e.getCode() == KeyCode.W){
 			        newY = newY - 8;
 			        circle.setTranslateY(newY);
-			        System.out.println("Up");
 			    }
 			    else if(e.getCode() == KeyCode.S){
 			        newY = newY + 8;
 			        circle.setTranslateY(newY);
-			        System.out.println("Down");
 			    }
+			    else SPACE:
+			    	warrior.fireProjectile();
 			});
-			/*int x = warrior.getPaintCount();
-			scene.setOnKeyPressed(e->{
-				if(e.getCode() == KeyCode.Q) {
-					warrior.paintCount++;
-					if(warrior.paintCount == 4)
-						warrior.paintCount = 0;
-					switch(warrior.paintCount) {
-					case 0:
-						//warrior.paintColor = Color.RED;
-						System.out.println("case: 0");
-					case 1:
-						//warrior.paintColor = Color.BLUE;
-						System.out.println("case: 1");
-					case 2:
-						//warrior.paintColor = Color.GREEN;
-					}
-				}
-			});*/
-			
-			//end of my stuff
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
