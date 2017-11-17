@@ -1,6 +1,8 @@
 package application.game;
+import javafx.scene.Scene;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
@@ -13,7 +15,6 @@ public class GameScreen extends Pane {
     
     public GameScreen() {
  
-    	this.setBackground(new Background(new BackgroundFill(Color.rgb(8, 8, 8), null, null)));
     }
 
     

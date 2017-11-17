@@ -16,7 +16,7 @@ import application.WarriorProjectiles;
 public class Warrior extends Mob {
 
     
-    private static Image leftSprite = new Image(Resources.WARRIOR, 
+    private static Image Sprite = new Image(Resources.WARRIOR, 
             Figurations.WARRIOR_WIDTH, Figurations.WARRIOR_HEIGHT, false, false);
     
     //The amount to move each tick
@@ -86,7 +86,7 @@ public class Warrior extends Mob {
     }
 
     public void fireProjectile() {
-        ((GameScreen)getParent()).getStarter().queueAddition(
+        ((GameScreen)getParent()).getStarter().add(
             new WarriorProjectiles(
                 getCenterX() - (Figurations.BULLET_WIDTH / 2),
                 getY() - Figurations.BULLET_HEIGHT
@@ -123,7 +123,7 @@ public class Warrior extends Mob {
     public void doTick() {
         doMovement();
         if (movingLeft ^ movingRight) {
-            if (movingLeft) setImage(leftSprite);
+            if (movingLeft) setImage(Sprite);
         } else setImage(sprite);
     }
 }

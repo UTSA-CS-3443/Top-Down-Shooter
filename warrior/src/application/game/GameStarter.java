@@ -9,6 +9,7 @@ import javafx.animation.Timeline;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCode;
 
 public class GameStarter {
     
@@ -38,7 +39,7 @@ public class GameStarter {
 
     }
    
-    private void add(Entity entity) {
+    public void add(Entity entity) {
         entities.add(entity);
         if (entity instanceof Warrior) {
             warrior = (Warrior)entity;
@@ -46,7 +47,7 @@ public class GameStarter {
 
         
     }
-    
+   
    
     private void remove(Entity entity) {
    
