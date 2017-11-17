@@ -1,4 +1,4 @@
-package application.game;
+package application;
 
 import com.sun.prism.paint.Color;
 

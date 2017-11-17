@@ -33,19 +33,22 @@ public class Main extends Application {
 			    if(e.getCode() == KeyCode.D){
 			        newX = newX + 8;
 			        circle.setTranslateX(newX);
-			  
+			        System.out.println("Right");
 			    }
 			    else if(e.getCode() == KeyCode.A){
 			        newX = newX - 8;
 			        circle.setTranslateX(newX);
+			        System.out.println("Left");
 			    }
 			    else if(e.getCode() == KeyCode.W){
 			        newY = newY - 8;
 			        circle.setTranslateY(newY);
+			        System.out.println("Up");
 			    }
 			    else if(e.getCode() == KeyCode.S){
 			        newY = newY + 8;
 			        circle.setTranslateY(newY);
+			        System.out.println("Down");
 			    }
 			});
 			/*int x = warrior.getPaintCount();

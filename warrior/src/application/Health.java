@@ -1,4 +1,4 @@
-package application.game;
+package application;
 
 public class Health {
 	public static final int WARRIOR_HEALTH = 100;
