@@ -76,6 +76,7 @@ public class Projectiles extends Entity {
     @Override
     public void doTick() {
         doMovement();
+    
     }
     
 }
