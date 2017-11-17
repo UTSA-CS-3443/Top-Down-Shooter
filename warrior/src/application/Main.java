@@ -9,13 +9,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 
 
-public class Main extends Application {
+public class Main extends Application{
 	
-	public static void main (String [] args)
-	{
-		launch(args);
+	//public static void main (String [] args)
+	//{
+		//launch(args);
 		
-	}
+	//}
+
 public void start(Stage primaryStage) {
         
         //Set up the game window

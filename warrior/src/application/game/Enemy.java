@@ -58,7 +58,23 @@ public abstract class Enemy extends Mob {
                 else key = KeyBoard.LEFT;
         }
     }
-    
+    public double getWidth() {
+        return width;
+    }
+
+
+    public double getHeight() {
+        return height;
+    }
+
+
+    public double getCenterX() {
+        return getX() + (width / 2);
+    }
+   
+    public double getCenterY() {
+        return getY() + (height / 2);
+    }
     @Override
     public abstract void Tick();
 }

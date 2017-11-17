@@ -2,7 +2,6 @@ package application.game;
 
 import java.io.File;
 import javafx.util.Duration;
-
 import javafx.scene.Scene;
 
 import application.ClassProportions;
@@ -27,6 +26,7 @@ public class GameStarter {
 	private Warrior warrior = new Warrior();
 	private ArrayList<Thing> things = new ArrayList<>();
 	private ArrayList<Mannequin> mannequin = new ArrayList<>();
+	 private ArrayList<Enemy> enemies = new ArrayList<>();
 	private ArrayList<Splash> splash= new ArrayList<>();
 	
 	ArrayList<Thing> thingsToAdd = new ArrayList<>();
@@ -215,19 +215,19 @@ public void removeFromQ(Thing thing)
             }
             
             //Randomly spawn a new enemy
-            if (Math.random() < Timing.MANNEQUIN_SPAWNING) {
-                 addToQ(new Mannequin());
-            }
+            //if (Math.random() < Timing.MANNEQUIN_SPAWNING) {
+              //   addToQ(enemy);
+            //}
             
             //Detect collisions and remove any Projectiles that went outside the GamePane
-            for (Splash splash : splashes) {
+            for (Splash splash : splash) {
                 //PlayerProjectiles colliding with Enemies
                 if (splash instanceof WarriorSplash) {
-                    for (Mannequin mannequin : mannequins) {
-                        if (splash.intersects(mannequins.getX_VALUE(), mannequins.getY_VALUE(),
-                                mannequins.getWidth(), mannequins.getHeight())) {
-                            mannequin.subtractHealth(splash.getDamage());
-                            qToRemove(splash);
+                    for (Enemy enemy : enemies) {
+                        if (splash.intersects(enemy.getX(),enemy.getY() ,
+                        		enemy.getWidth(),enemy.getHeight())){
+                            //mannequin.subtractHealth(splash.getDamage());
+                            removeFromQ(splash);
                         }
                     }
                 }
