@@ -4,8 +4,13 @@ package entity;
 import javafx.scene.image.Image;
 import application.Timing;
 import application.game.*;
+import application.Direction;
+
+import java.util.ArrayList;
+
 import application.Figurations;
 import application.Health;
+import application.Projectiles;
 import application.WarriorProjectiles;
 
 public class Warrior extends Mob {
@@ -23,6 +28,7 @@ public class Warrior extends Mob {
     protected boolean movingUp = false;
     protected boolean movingDown = false;
     
+    protected ArrayList<Entity> list;
 
     public Warrior() {
         super(Resources.WARRIOR, Figurations.WARRIOR_WIDTH, 
@@ -54,13 +60,13 @@ public class Warrior extends Mob {
  
     public void startMovement(Direction dir) {
         switch (dir) {
-            case UP:
+            case W:
                 movingUp = true; break;
-            case DOWN:
+            case S:
                 movingDown = true; break;
-            case LEFT:
+            case A:
                 movingLeft = true; break;
-            case RIGHT:
+            case D:
                 movingRight = true; break;
         }
     }
@@ -68,19 +74,19 @@ public class Warrior extends Mob {
 
     public void stopMovement(Direction dir) {
         switch (dir) {
-            case UP:
+            case W:
                 movingUp = false; break;
-            case DOWN:
+            case S:
                 movingDown = false; break;
-            case LEFT:
+            case A:
                 movingLeft = false; break;
-            case RIGHT:
+            case D:
                 movingRight = false; break;
         }
     }
 
     public void fireProjectile() {
-        ((GamePane)getParent()).getEngine().queueAddition(
+        ((GameScreen)getParent()).getStarter().queueAddition(
             new WarriorProjectiles(
                 getCenterX() - (Figurations.BULLET_WIDTH / 2),
                 getY() - Figurations.BULLET_HEIGHT

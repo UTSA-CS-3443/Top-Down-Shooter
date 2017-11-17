@@ -4,6 +4,7 @@ package application;
 
 
 
+import application.game.GameStarter;
 import entity.Warrior;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -28,8 +29,8 @@ public class Main extends Application {
 			
 
 
-			Warrior warrior = new Warrior();   //BVP 1329 11/7
-
+			GameStarter starter = new GameStarter();   //BVP 1329 11/7
+			Warrior warrior = new Warrior();
 
 		
 
@@ -56,7 +57,7 @@ public class Main extends Application {
 			        newY = newY + 8;
 			        circle.setTranslateY(newY);
 			    }
-			    else SPACE:
+			    else if (e.getCode() == KeyCode.SPACE)
 			    	warrior.fireProjectile();
 			});
 			
