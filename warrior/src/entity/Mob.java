@@ -4,7 +4,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-
 public abstract class Mob extends Entity {
     private int health;
 	private IntegerProperty healthProperty = new SimpleIntegerProperty(100);
