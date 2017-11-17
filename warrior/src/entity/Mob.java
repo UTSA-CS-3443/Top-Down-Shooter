@@ -1,5 +1,5 @@
 package entity;
 
-public class Mob {
+public abstract class Mob extends Entity {
 // TODO BVP
 }
