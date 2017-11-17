@@ -8,7 +8,6 @@ public abstract class Mob extends Entity {
     private int health;
 	private IntegerProperty healthProperty = new SimpleIntegerProperty(100);
 	
-	
 	public Mob() {}
 	
 	public Mob(int health) {
