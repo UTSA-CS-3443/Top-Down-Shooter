@@ -4,10 +4,10 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-// SHOULD BE Warrior not Player - BVP 13:05 11/17
 
 
-public class Player extends Mob {
+
+public class Warrior extends Mob {
 	
 	
 	
@@ -19,10 +19,10 @@ public class Player extends Mob {
 
 		//	
 
-		/*	root.setId("pane");
+			root.setId("pane");
 			Circle circle = new Circle(50, 20, 20, Color.RED);
 			circle.setCenterX(400);
 			circle.setCenterY(300);
-			root.getChildren().add(circle);*/
+			root.getChildren().add(circle);
 
 }
