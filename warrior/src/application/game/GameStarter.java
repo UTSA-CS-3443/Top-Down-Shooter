@@ -2,7 +2,7 @@ package application.game;
 import java.util.ArrayList;
 
 import application.Projectiles;
-import application.enemy;
+import application.Enemy;
 import entity.Entity;
 import entity.Warrior;
 import javafx.animation.Timeline;
@@ -24,7 +24,7 @@ public class GameStarter {
     //Entities
     private Warrior warrior = new Warrior();
     private ArrayList<Entity> entities = new ArrayList<>();
-    private ArrayList<enemy> enemies = new ArrayList<>();
+    private ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Projectiles> projectiles = new ArrayList<>();
     
     //We can't add or remove objects while iterating, so make queues
