@@ -27,7 +27,7 @@ public class Main extends Application {
 			
 			Warrior warrior = new Warrior();   //BVP 1329 11/7
 		
-			
+		//	root.getChildren().add(warrior);
 			
 			root.setId("pane");
 			Circle circle = new Circle(50, 20, 20, Color.RED);
