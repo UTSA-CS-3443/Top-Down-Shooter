@@ -8,7 +8,6 @@ public class Timing {
 	public static final double WARRIOR_DELTA_Y = 2.0;
 	
 	public static final double MANNEQUIN_X = 2.5;
-	public static final double MANNEQUIN_Y = 2.5;
 	
 	public static final double SPLASH_WARRIOR_DELTA_X = 0.0;
 	public static final double SPLASH_WARRIOR_DELTA_Y = 1.0;

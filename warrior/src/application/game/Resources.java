@@ -3,6 +3,8 @@ package application.game;
 public class Resources {
 	public static final String BASE = "media/";
 	
+	public static final String SPR_DEAD = BASE + "mervin.png";
+	
 	public static final String SPR_WARRIOR = BASE + "mervin.png";
 	public static final String SPR_WARRIOR_SPLASH = BASE + "";
 	

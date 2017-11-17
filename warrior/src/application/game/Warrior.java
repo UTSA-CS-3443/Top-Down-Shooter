@@ -77,7 +77,7 @@ public class Warrior extends Mob {
 	public void fireSplash()
 	{
 		// javafx.scene.Node.getParent and then get
-		((GameScreen)getParent()).getStarter().queueToAdd(
+		((GameScreen)getParent()).getStarter().addToQ(
 				new WarriorSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
 						getY() - ClassProportions.SPLASH_WARRIOR_H)
 					
@@ -119,8 +119,8 @@ public class Warrior extends Mob {
 		if(moveLeft ^ moveRight)
 		{
 			//views of the sprites if we need it
-			if(moveLeft)setImage(leftView);
-			if(moveRight)setImage(rightView);
-		}else setImage(view);
+			if(moveLeft)setImage(leftSprite);
+			if(moveRight)setImage(rightSprite);
+		}else setImage(sprite);
 	}
 }

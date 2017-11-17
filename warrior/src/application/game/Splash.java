@@ -17,18 +17,19 @@ public class Splash extends Thing {
 		super();
 		this.damage = damage;
 	}
-	public Splash(String name, double W, double H, int damage, double startX, double startY, double dX, double dY) {
-		super();
+	public Splash(String name, double W, double H, int damage, 
+			double startX, double startY, double dX, double dY) {
+		super(name, W, H);
 		this.damage = damage;
 		this.dX = dX;
 		this.dY = dY;
 		setX(startX);
 		setY(startY);
 	}
-	public Splash(String sprMannequin, double mannequinW, double mannequinH, int mannequinHealth, double mannequinX,
+	/*public Splash(String sprMannequin, double mannequinW, double mannequinH, int mannequinHealth, double mannequinX,
 			Object object) {
 		// TODO Auto-generated constructor stub
-	}
+	}*/
 
 	public double getdX() {
 		return dX;
@@ -53,12 +54,5 @@ public class Splash extends Thing {
 	@Override
 	public void Tick() {
 		doMov();
-	}
-	public void fireSplash()
-	{
-		GameStarter starter = ((GameScreen)getParent()).getStarter();
-		MannequinSplash splash = new MannequinSplash(
-				(getX()+(width/2)), (getY()+height));
-		
 	}
 }

@@ -1,36 +1,35 @@
 package application.game;
 
+import application.ClassProportions;
+import application.game.Timing;
+import application.game.KeyBoard;
 
-public abstract class Mannequin extends Mob {
-	private double height = 1.0;
-	private int health = Health.MANNEQUIN_HEALTH;
-	private int X_VALUE;
-	private int Y_VALUE;
-	private boolean IS_TOUCHING = false;
+public abstract class Mannequin extends Enemy {
 	
-	protected KeyBoard dir;
-	 
-	public void setPosition(int x, int y) {
-		this.X_VALUE = x;
-		this.Y_VALUE = y;
+	public Mannequin() {
+		super(Resources.SPR_MANNEQUIN, ClassProportions.MANNEQUIN_W, ClassProportions.MANNEQUIN_H, 
+                Health.MANNEQUIN_HEALTH, Timing.MANNEQUIN_X, 
+                (Math.random() < 0.5 ? KeyBoard.LEFT : KeyBoard.RIGHT));
 	}
-	public int getX_VALUE() {
-		return this.X_VALUE;
-	}
-	public int getY_VALUE() {
-		return this.Y_VALUE;
-	}
-	public void setTouch(boolean x) {
-		this.IS_TOUCHING = x;
-	}
-	public boolean getTouch() {
-		return this.IS_TOUCHING;
-	}
-	public int getHealth() {
-		return this.health;
-	}
-	public void takeDamage() {
-		this.health = this.health - Health.MANNEQUIN_HEALTH_DMG;
-	}
+	public void reverseKey() {
+        switch (key) {
+            case LEFT:
+                key = KeyBoard.RIGHT; 
+                break;
+            case RIGHT:
+                key = KeyBoard.LEFT; 
+                break;
+        }
+    }
+	public void shootSplash() {
+        ((GameScreen)getParent()).getStarter().addToQ(
+            new MannequinSplash(getX() + 5, getY() + height));
+        ((GameScreen)getParent()).getStarter().addToQ(
+            new MannequinSplash(getX() + 54, getY() + height));
+    }
+	@Override
+    public void Tick() {
+        doMovement();
+    }
 
 }

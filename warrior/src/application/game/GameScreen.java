@@ -12,17 +12,11 @@ public class GameScreen extends Pane {
 	public GameScreen () {
 		this.setBackground(new Background(new BackgroundFill(Color.rgb(8, 8, 8), null, null)));
 	}
-
+	public GameStarter getStarter(){
+		return this.starter;
+	}
 	public void setStarter(GameStarter gameStarter) {
 		this.starter = gameStarter;	
 	}
 	
-	public GameStarter getStarter(){
-		return this.starter;
-	}
-	public GameStarter getChildren() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 }

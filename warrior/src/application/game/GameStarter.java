@@ -11,12 +11,12 @@ import java.util.Scanner;
 
 import java.util.ArrayList;
 
-
-import com.sun.javafx.scene.traversal.Direction;
-
+import application.game.*;
+//import application.game.Mannequin;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import application.game.KeyBoard;
+//import application.game.KeyBoard;
+
 public class GameStarter {
 	private GameScreen screen;
 	private Scene scene;
@@ -262,7 +262,7 @@ public void removeFromQ(Thing thing)
         
         mannequinLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE), e -> {
             for (Thing thing : things) {
-                if (thing instanceof Mannequin) ((Mannequin)thing).fireSplash();
+                if (thing instanceof Mannequin) ((Mannequin)thing).shootSplash();
             }
         }));
         mannequinLoop.setCycleCount(Timeline.INDEFINITE);
