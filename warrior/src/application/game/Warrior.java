@@ -77,7 +77,7 @@ public class Warrior extends Mob {
 	public void fireSplash()
 	{
 		// javafx.scene.Node.getParent and then get
-		((GameScreen)getParent()).getStarter().queueToAdd(
+		((GameScreen)getParent()).getStarter().addToQ(
 				new WarriorSplash(getCenterX() - (ClassProportions.SPLASH_WARRIOR_W / 2),
 						getY() - ClassProportions.SPLASH_WARRIOR_H)
 					
