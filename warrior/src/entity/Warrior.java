@@ -18,7 +18,9 @@ public class Warrior extends Mob {
 			public static Image image1 = new Image(String url, double requestedWidth, double requestedHeight,
 					boolean preserveRatio,boolean smooth);*/
 	static Circle circle1 = new Circle(50, 20, 20, Color.RED);
-	public static Image player = new Image("/warrior/horribleCircle.JPG", 40, 40, false, false); 
+
+	// cant figure out how to init the Warior Image
+	//public static Image player = new Image("/warrior/horribleCircle.JPG", 40, 40, false, false); 
 	
 	private int health = Health.WARRIOR_HEALTH;
 	private int paintCount = 0;
