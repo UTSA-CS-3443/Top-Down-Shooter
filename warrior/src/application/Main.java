@@ -2,7 +2,7 @@ package application;
 
 
 
-import entity.Player;
+//import entity.Player;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
@@ -25,7 +25,7 @@ public class Main extends Application {
 			primaryStage.setTitle("Paint Warrrior");
 			
 			
-			Player player = new Player();
+	//		Player player = new Player();
 			
 			
 			root.setId("pane");
