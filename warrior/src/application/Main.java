@@ -27,10 +27,12 @@ public class Main extends Application {
 			primaryStage.setTitle("Paint Warrrior");
 			
 
+
 			Warrior warrior = new Warrior();   //BVP 1329 11/7
 
-			
-			
+
+		
+
 			root.setId("pane");
 			Circle circle = new Circle(50, 20, 20, Color.RED);
 			circle.setCenterX(400);
