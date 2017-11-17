@@ -106,7 +106,6 @@ public class Warrior extends Mob {
                 else setY(height);
             }
             if (movingDown) {
-                //Prevent player from leaving the game area at the bottom
                 if (getY() < (Figurations.SCREEN_HEIGHT - height - deltaY))
                     setY(getY() + deltaY);
                 else setY(Figurations.SCREEN_HEIGHT - height - deltaY);
@@ -114,16 +113,9 @@ public class Warrior extends Mob {
         }
     }
     
-    /**
-     * Processes events for this Entity.
-     * PreCondition: None.
-     * PostConditon: This Player has moved and had a sprite set according to 
-     * the direction in which it moved.
-     */
-    @Override
+ 
     public void doTick() {
         doMovement();
-        //Set the sprite according to how we're moving
         if (movingLeft ^ movingRight) {
             if (movingLeft) setImage(leftSprite);
         } else setImage(sprite);
