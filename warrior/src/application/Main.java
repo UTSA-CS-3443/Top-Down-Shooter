@@ -1,6 +1,6 @@
 package application;
 
-import java.awt.Label;
+
 
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -33,44 +33,20 @@ public class Main extends Application {
 			    if(e.getCode() == KeyCode.D){
 			        newX = newX + 8;
 			        circle.setTranslateX(newX);
-			        System.out.println("Right");
 			    }
 			    else if(e.getCode() == KeyCode.A){
 			        newX = newX - 8;
 			        circle.setTranslateX(newX);
-			        System.out.println("Left");
 			    }
 			    else if(e.getCode() == KeyCode.W){
 			        newY = newY - 8;
 			        circle.setTranslateY(newY);
-			        System.out.println("Up");
 			    }
 			    else if(e.getCode() == KeyCode.S){
 			        newY = newY + 8;
 			        circle.setTranslateY(newY);
-			        System.out.println("Down");
 			    }
 			});
-			/*int x = warrior.getPaintCount();
-			scene.setOnKeyPressed(e->{
-				if(e.getCode() == KeyCode.Q) {
-					warrior.paintCount++;
-					if(warrior.paintCount == 4)
-						warrior.paintCount = 0;
-					switch(warrior.paintCount) {
-					case 0:
-						//warrior.paintColor = Color.RED;
-						System.out.println("case: 0");
-					case 1:
-						//warrior.paintColor = Color.BLUE;
-						System.out.println("case: 1");
-					case 2:
-						//warrior.paintColor = Color.GREEN;
-					}
-				}
-			});*/
-			
-			//end of my stuff
 			
 			primaryStage.setScene(scene);
 			primaryStage.show();
