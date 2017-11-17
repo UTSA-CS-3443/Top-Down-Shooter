@@ -45,15 +45,15 @@ public abstract class Enemy extends Mob {
 	public void doMovement() {
 		switch(dir) {
 		case LEFT:
-			if (getX() >= deltaX) setX(get() - deltaX);
+			if (getX() >= deltaX) setX(getX() - deltaX);
 			else dir = Direction.RIGHT;
 			break;
 		case RIGHT: 
-			if (get() < (Figurations.SCREEN_WIDTH - width - deltaX))
+			if (getX() < (Figurations.SCREEN_WIDTH - width - deltaX))
 				setX(getX() + deltaX);
 			else dir = Direction.LEFT;
 		}
 	}
 	@Override
-	public abstract void doTrick();
+	public abstract void doTick();
 }
