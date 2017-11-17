@@ -14,6 +14,8 @@ public class warrior {
 	}
 	public int getPaintCount() {
 		return this.paintCount;
+		
+		
 	}
 	
 }

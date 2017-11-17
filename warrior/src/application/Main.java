@@ -23,6 +23,8 @@ public class Main extends Application {
 			//all of my stuff
 			primaryStage.setTitle("Paint Warrrior");
 			
+			
+			
 			root.setId("pane");
 			Circle circle = new Circle(50, 20, 20, Color.RED);
 			circle.setCenterX(400);

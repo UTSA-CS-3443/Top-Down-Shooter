@@ -6,4 +6,5 @@ public class Health {
 	
 	public static final int ENEMY_HEALTH = 100;
 	public static final int ENEMY_DMG = 20;
+	
 }
