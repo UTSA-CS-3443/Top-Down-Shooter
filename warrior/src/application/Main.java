@@ -22,7 +22,13 @@ public class Main extends Application {
 			//all of my stuff
 			primaryStage.setTitle("Paint Warrrior");
 			
+<<<<<<< HEAD
+			Warrior warrior = new Warrior();   //BVP 1329 11/7
+		
+		//	root.getChildren().add(warrior);
+=======
 			
+>>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
 			
 			root.setId("pane");
 			Circle circle = new Circle(50, 20, 20, Color.RED);
