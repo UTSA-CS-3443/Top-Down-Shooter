@@ -1,11 +1,17 @@
 package application;
+public class Figurations {    
 
-public class Figurations {
-	public static final double BULLET_HEIGHT = 2.0;
-	public static final double BULLET_WIDTH = 2.0;
-	public static final double WARRIOR_HEIGHT = 5.0;
-	public static final double WARRIOR_WIDTH = 5.0;
-	
-	public static final double SCREEN_WIDTH = 640;
-	public static final double SCREEN_HEIGHT = 640;
+    public static final double SCREEN_WIDTH = 640;
+    public static final double SCREEN_HEIGHT = 640;
+    
+    public static final double PLAYER_WIDTH = 24;
+    public static final double PLAYER_HEIGHT = 28;
+
+    public static final double MANNEQUIN_WIDTH = 64;
+    public static final double MANNEQUIN_HEIGHT = 32;
+    public static final double PROJECTILE_WARRIOR_WIDTH = 8;
+    public static final double PROJECTILE_WARRIOR_HEIGHT = 8;
+
+    public static final double PROJECTILE_MANNEQUIN_WIDTH = 6;
+    public static final double PROJECTILE_MANNEQUIN_HEIGHT = 14;
 }

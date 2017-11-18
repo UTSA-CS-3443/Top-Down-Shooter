@@ -2,24 +2,15 @@
 package entity;
 
 import javafx.scene.image.Image;
-import application.Timing;
-import application.game.*;
-import application.Direction;
-
-import java.util.ArrayList;
-
 import application.Figurations;
+import application.GameScreen;
 import application.Health;
-import application.Projectiles;
-import application.WarriorProjectiles;
+import application.Resources;
+import application.Timing;
+
 
 public class Warrior extends Mob {
-
     
-    private static Image Sprite = new Image(Resources.WARRIOR, 
-            Figurations.WARRIOR_WIDTH, Figurations.WARRIOR_HEIGHT, false, false);
-    
-    //The amount to move each tick
     protected double deltaX = Timing.WARRIOR_DELTA_X;
     protected double deltaY = Timing.WARRIOR_DELTA_Y;
     
@@ -27,73 +18,54 @@ public class Warrior extends Mob {
     protected boolean movingRight = false;
     protected boolean movingUp = false;
     protected boolean movingDown = false;
-    
-    protected ArrayList<Entity> list;
 
     public Warrior() {
-        super(Resources.WARRIOR, Figurations.WARRIOR_WIDTH, 
-                Figurations.WARRIOR_HEIGHT, Health.WARRIOR_HEALTH);
+        super(Resources.SPR_WARRIOR, Figurations.PLAYER_WIDTH, 
+                Figurations.PLAYER_HEIGHT, Health.WARRIOR);
         setInitialPosition();
     }
- 
-	private int health = Health.WARRIOR_HEALTH;
-	private int paintCount = 0;
-	
-	public int getHealth() {
-		return this.health;
-	}
-	public void takeDamage() {
-		this.health = this.health - Health.ENEMY_DMG;
-	}
-	public int getPaintCount() {
-		return this.paintCount;
-	}
-	
-	
-	
-	
+
     private void setInitialPosition() {
-        setX((Figurations.SCREEN_WIDTH - Figurations.WARRIOR_WIDTH) / 2);
-        setY(Figurations.SCREEN_HEIGHT - Figurations.WARRIOR_HEIGHT);
+        setX((Figurations.SCREEN_WIDTH - Figurations.PLAYER_WIDTH) / 2);
+        setY(Figurations.SCREEN_HEIGHT - Figurations.PLAYER_HEIGHT);
     }
-    
- 
+
     public void startMovement(Direction dir) {
         switch (dir) {
-            case W:
+            case UP:
                 movingUp = true; break;
-            case S:
+            case DOWN:
                 movingDown = true; break;
-            case A:
+            case LEFT:
                 movingLeft = true; break;
-            case D:
+            case RIGHT:
                 movingRight = true; break;
         }
     }
     
-
+   
     public void stopMovement(Direction dir) {
         switch (dir) {
-            case W:
+            case UP:
                 movingUp = false; break;
-            case S:
+            case DOWN:
                 movingDown = false; break;
-            case A:
+            case LEFT:
                 movingLeft = false; break;
-            case D:
+            case RIGHT:
                 movingRight = false; break;
         }
     }
 
     public void fireProjectile() {
-        ((GameScreen)getParent()).getStarter().add(
+        ((GameScreen)getParent()).getEngine().queueAddition(
             new WarriorProjectiles(
-                getCenterX() - (Figurations.BULLET_WIDTH / 2),
-                getY() - Figurations.BULLET_HEIGHT
+                getCenterX() - (Figurations.PROJECTILE_WARRIOR_WIDTH / 2),
+                getY() - Figurations.PROJECTILE_WARRIOR_HEIGHT
             )
         );
     }
-    
+
     protected void doMovement() {
         if (movingLeft ^ movingRight) { 
             if (movingLeft) {
@@ -101,12 +73,13 @@ public class Warrior extends Mob {
                 else setX(0);
             }
             if (movingRight) {
+             
                 if (getX() < (Figurations.SCREEN_WIDTH - width - deltaX))
                     setX(getX() + deltaX);
                 else setX(Figurations.SCREEN_WIDTH - width - deltaX);
             }
         }
-        if (movingUp ^ movingDown) {
+        if (movingUp ^ movingDown) { 
             if (movingUp) {
                 if (getY() >= (deltaY + height)) setY(getY() - deltaY);
                 else setY(height);
@@ -118,12 +91,12 @@ public class Warrior extends Mob {
             }
         }
     }
-    
  
     public void doTick() {
         doMovement();
+        
         if (movingLeft ^ movingRight) {
-            if (movingLeft) setImage(Sprite);
+
         } else setImage(sprite);
     }
 }
