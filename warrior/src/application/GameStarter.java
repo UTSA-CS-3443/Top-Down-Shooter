@@ -1,29 +1,13 @@
 package application;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Scanner;
 
+import java.util.ArrayList;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
-import javafx.application.Platform;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
-import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import entity.*;
-import application.*;
+
 
 public class GameStarter {
     
@@ -33,10 +17,7 @@ public class GameStarter {
     
     private Timeline gameLoop;
     private Timeline mannequinFireLoop;
-    
-    //IntegerProperties (to permit binding) for scores
-    private IntegerProperty score = new SimpleIntegerProperty(0);
-    private IntegerProperty highScore = new SimpleIntegerProperty(0);
+
     
     private Warrior warrior = new Warrior();
     private ArrayList<Entity> entities = new ArrayList<>();
@@ -227,11 +208,12 @@ public class GameStarter {
                 
                         queueRemoval(entity);
                     }
-                    
+                
                     if (entity instanceof Mannequin) {
                         if (Math.random() < Timing.MANNEQUIN_REVERSE_CHANCE)
                             ((Mannequin)entity).reverseDirection();
                     }
+                   
                 }
                 if (entity instanceof Warrior) {
                     if (((Mob)entity).getHealth() <= 0) {
@@ -241,7 +223,11 @@ public class GameStarter {
                 }
             }
             if (Math.random() < Timing.ENEMY_SPAWN_CHANCE) {
-                queueAddition(new Mannequin());
+                if(enemies.size() != 3) {
+                	queueAddition(new Mannequin());
+                }
+
+           
             }
             
             for (Projectiles projectile : projectiles) {

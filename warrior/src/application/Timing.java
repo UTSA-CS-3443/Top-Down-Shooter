@@ -17,11 +17,11 @@ public class Timing {
     
     
   
-   public static final double MANNEQUIN_REVERSE_CHANCE = 0.01;
-    public static final double ENEMY_SPAWN_CHANCE = 0.005;
+   public static final double MANNEQUIN_REVERSE_CHANCE = 0.001;
+    public static final double ENEMY_SPAWN_CHANCE = .004;
     
     public static final double MANNEQUIN_PROPORTION = 0.7;
     
-    public static final int MANNEQUIN_FIRE_RATE = 600;
+    public static final int MANNEQUIN_FIRE_RATE = 200;
 
 }

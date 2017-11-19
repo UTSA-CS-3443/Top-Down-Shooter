@@ -41,11 +41,12 @@ public abstract class Enemy extends Mob {
 
 
 	public void setRandomInitialPosition() {
-        setX(Math.random() * (Figurations.SCREEN_WIDTH - width));
-        setY(height * (int)(1 + Math.random() * Figurations.SCREEN_HEIGHT / 3 / height));
-    }
+		setX(.6 * (Figurations.SCREEN_WIDTH - width));
+		setY(height * (int)(1 + .5 * Figurations.SCREEN_HEIGHT / 3 / height));
+		}
 
-
+	//setX(Math.random() * (Figurations.SCREEN_WIDTH - width));
+	//setY(height * (int)(1 + Math.random() * Figurations.SCREEN_HEIGHT / 3 / height));
     public Direction getDir() {
         return dir;
     }
@@ -66,7 +67,7 @@ public abstract class Enemy extends Mob {
                 else dir = Direction.LEFT;
         }
     }
-    
+
     @Override
     public abstract void doTick();
 }

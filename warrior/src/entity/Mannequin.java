@@ -23,12 +23,11 @@ public class Mannequin extends Enemy {
                 dir = Direction.LEFT; break;
         }
     }
+ 
     
     public void fireProjectile() {
         ((GameScreen)getParent()).getEngine().queueAddition(
-            new MannequinProjectile(getX() + 5, getY() + height));
-        ((GameScreen)getParent()).getEngine().queueAddition(
-            new MannequinProjectile(getX() + 54, getY() + height));
+            new MannequinProjectile(getX() + 25, getY() + height));
     }
  
     @Override
