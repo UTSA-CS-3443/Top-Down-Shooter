@@ -16,5 +16,6 @@ public class Resources {
     
     public static final String SPR_PROJECTILE_MANNEQUIN = BASE + "projectile_enemy_lg.png";
     
-
+    
+    
 }

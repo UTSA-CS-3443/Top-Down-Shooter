@@ -1,6 +1,3 @@
-/*
- * This class represents the engine which drives every event in the game.
- */
 package application;
 
 import java.io.File;
@@ -46,7 +43,6 @@ public class GameStarter {
     private ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Projectiles> projectiles = new ArrayList<>();
     
-    //We can't add or remove objects while iterating, so make queues
     ArrayList<Entity> entitiesToAdd = new ArrayList<>();
     ArrayList<Entity> entitiesToRemove = new ArrayList<>();
     
@@ -123,6 +119,7 @@ public class GameStarter {
     
     private void gameOver() {
         stop();
+
     }
     private void add(Entity entity) {
         entities.add(entity);
