@@ -6,9 +6,12 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+<<<<<<< HEAD
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
+=======
+>>>>>>> branch 'master' of https://github.com/UTSA-CS-3443/Top-Down-Shooter.git
 //import javafx.scene.layout.AnchorPane;
 //import javafx.scene.layout.BorderPane;
 //import application.Resources;
