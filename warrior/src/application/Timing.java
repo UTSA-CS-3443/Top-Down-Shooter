@@ -22,6 +22,6 @@ public class Timing {
     
     public static final double MANNEQUIN_PROPORTION = 0.7;
     
-    public static final int MANNEQUIN_FIRE_RATE = 200;
+    public static final int MANNEQUIN_FIRE_RATE = 700;
 
 }

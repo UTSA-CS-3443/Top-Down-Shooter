@@ -10,6 +10,7 @@ import application.game.*;
 public abstract class Enemy extends Mob {
     
     protected double deltaX = 0.0;
+    protected double deltaY = 0.0;
 
     protected Direction dir = Direction.LEFT;
     
@@ -41,9 +42,13 @@ public abstract class Enemy extends Mob {
 
 
 	public void setRandomInitialPosition() {
-		setX(.6 * (Figurations.SCREEN_WIDTH - width));
-		setY(height * (int)(1 + .5 * Figurations.SCREEN_HEIGHT / 3 / height));
+		double spawn = Math.random();
+		if(spawn< 1.0)
+		{
+			setX(spawn * (Figurations.SCREEN_WIDTH - width));
+			setY(height * (int)(1 + spawn * Figurations.SCREEN_HEIGHT / 3 / height));
 		}
+	}
 
 	//setX(Math.random() * (Figurations.SCREEN_WIDTH - width));
 	//setY(height * (int)(1 + Math.random() * Figurations.SCREEN_HEIGHT / 3 / height));
@@ -65,6 +70,13 @@ public abstract class Enemy extends Mob {
                 if (getX() < (Figurations.SCREEN_WIDTH - width - deltaX))
                     setX(getX() + deltaX);
                 else dir = Direction.LEFT;
+           // case UP:
+             //        if (getY() >= (deltaY + height)) setY(getY() - deltaY);
+               //      else setY(height);
+            //case DOWN:
+              //       if (getY() < (Figurations.SCREEN_HEIGHT - height - deltaY))
+                //         setY(getY() + deltaY);
+                  //   else setY(Figurations.SCREEN_HEIGHT - height - deltaY);
         }
     }
 

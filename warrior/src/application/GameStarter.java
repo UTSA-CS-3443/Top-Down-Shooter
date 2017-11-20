@@ -7,6 +7,8 @@ import javafx.animation.Timeline;
 import javafx.scene.Scene;
 import javafx.util.Duration;
 import entity.*;
+import application.Round;
+import application.Points;
 
 
 public class GameStarter {
@@ -21,10 +23,10 @@ public class GameStarter {
     
     private Warrior warrior = new Warrior();
     private ArrayList<Entity> entities = new ArrayList<>();
-    private ArrayList<Enemy> enemies = new ArrayList<>();
+    public  static ArrayList<Enemy> enemies = new ArrayList<>();
     private ArrayList<Projectiles> projectiles = new ArrayList<>();
     
-    ArrayList<Entity> entitiesToAdd = new ArrayList<>();
+    static ArrayList<Entity> entitiesToAdd = new ArrayList<>();
     ArrayList<Entity> entitiesToRemove = new ArrayList<>();
     
     public GameStarter() {
@@ -126,7 +128,7 @@ public class GameStarter {
 
     
     
-    public void queueAddition(Entity entity) {
+    public static void queueAddition(Entity entity) {
         entitiesToAdd.add(entity);
     }
     
@@ -155,28 +157,28 @@ public class GameStarter {
     }
     
     
-    private void pause() {
+    public void pause() {
         gameLoop.pause();
         
         mannequinFireLoop.pause();
     }
     
     
-    private void play() {
+    public void play() {
         gameLoop.play();
        
         mannequinFireLoop.play();
     }
     
     
-    private void stop() {
+    public void stop() {
         gameLoop.stop();
        
         mannequinFireLoop.stop();
  
     }
     
-    private void restart() {
+    public void restart() {
         //Clear out the ArrayLists
         entities.clear();
         entitiesToAdd.clear();
@@ -205,10 +207,63 @@ public class GameStarter {
                 
                 if (entity instanceof Enemy) {
                     if (((Enemy)entity).getHealth() <= 0) {
-                
+                    	Round.KILL_COUNT++;
+                    	Points.numberOfKills++;
+                    	Points.numberOfTotalKills++;
+                    	System.out.println(Points.numberOfKills);
                         queueRemoval(entity);
                     }
-                
+                    if(Round.ROUNDS ==0 )
+                    {
+                    	if(Round.KILL_COUNT == 5)
+                    	{
+                    		Round.ROUNDS++;
+                    		Round.KILL_COUNT =0;
+                    		stop();
+                    		try {
+                    			Thread.sleep(5000);
+                    			restart();
+                    		} catch (InterruptedException e1) {
+                    			e1.printStackTrace();
+                    		}
+        				
+                    	}
+                    }
+                    else if(Round.ROUNDS == 1) 
+                    {
+                    	if(Round.KILL_COUNT == 10)
+                    	{
+                    		Round.ROUNDS++;
+                    		Round.KILL_COUNT =0;
+                    		stop();
+                    		try {
+                    			Thread.sleep(5000);
+                    			restart();
+                    		} catch (InterruptedException e1) {
+                    			e1.printStackTrace();
+                    		}
+        				
+                    	}
+                    		
+                    }
+                    else if(Round.ROUNDS == 2) 
+                    {
+                    	if(Round.KILL_COUNT == 15)
+                    	{
+                    		Round.ROUNDS++;
+                    		Round.KILL_COUNT =0;
+                    		stop();
+                    		try {
+                    			Thread.sleep(5000);
+                    			restart();
+                    		} catch (InterruptedException e1) {
+                    			e1.printStackTrace();
+                    		}
+        				
+                    	}
+                    		
+                    }
+
                     if (entity instanceof Mannequin) {
                         if (Math.random() < Timing.MANNEQUIN_REVERSE_CHANCE)
                             ((Mannequin)entity).reverseDirection();
@@ -223,11 +278,27 @@ public class GameStarter {
                 }
             }
             if (Math.random() < Timing.ENEMY_SPAWN_CHANCE) {
-                if(enemies.size() != 3) {
+            	Round.spawnEnemies();
+            	/*
+            	if(enemies.size() != 3) {
+                	
+                	if(enemies.size() == 2)
+                	{
+                		queueAddition(new Mannequin());
+                	}
+                	else if(enemies.size() == 1)
+                	{
+                		queueAddition(new Mannequin());
+                		queueAddition(new Mannequin());
+                	}
+                	else
+                	{
                 	queueAddition(new Mannequin());
-                }
-
-           
+                	queueAddition(new Mannequin());
+                	queueAddition(new Mannequin());
+                	}
+                	}
+            	*/
             }
             
             for (Projectiles projectile : projectiles) {
