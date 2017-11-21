@@ -210,20 +210,21 @@ public class GameStarter {
                     	Round.KILL_COUNT++;
                     	Points.numberOfKills++;
                     	Points.numberOfTotalKills++;
-                    	System.out.println(Points.numberOfKills);
                         queueRemoval(entity);
                     }
-                    if(Round.ROUNDS ==0 )
+                    if(Round.ROUNDS == 0 )
                     {
                     	if(Round.KILL_COUNT == 5)
                     	{
                     		Round.ROUNDS++;
-                    		Round.KILL_COUNT =0;
+                    		Round.KILL_COUNT = 0;
+                    		Points.numberOfKills = 0;
                     		stop();
                     		try {
                     			Thread.sleep(5000);
                     			restart();
-                    		} catch (InterruptedException e1) {
+                    		}
+                    		catch (InterruptedException e1) {
                     			e1.printStackTrace();
                     		}
         				
@@ -234,7 +235,8 @@ public class GameStarter {
                     	if(Round.KILL_COUNT == 10)
                     	{
                     		Round.ROUNDS++;
-                    		Round.KILL_COUNT =0;
+                    		Round.KILL_COUNT = 0;
+                    		Points.numberOfKills = 0;
                     		stop();
                     		try {
                     			Thread.sleep(5000);
@@ -251,7 +253,8 @@ public class GameStarter {
                     	if(Round.KILL_COUNT == 15)
                     	{
                     		Round.ROUNDS++;
-                    		Round.KILL_COUNT =0;
+                    		Round.KILL_COUNT = 0;
+                    		Points.numberOfKills = 0;
                     		stop();
                     		try {
                     			Thread.sleep(5000);
@@ -277,7 +280,7 @@ public class GameStarter {
                     }
                 }
             }
-            if (Math.random() < Timing.ENEMY_SPAWN_CHANCE) {
+            //if (Math.random() < Timing.ENEMY_SPAWN_CHANCE) {
             	Round.spawnEnemies();
             	/*
             	if(enemies.size() != 3) {
@@ -299,7 +302,7 @@ public class GameStarter {
                 	}
                 	}
             	*/
-            }
+           // }
             
             for (Projectiles projectile : projectiles) {
                 if (projectile instanceof WarriorProjectiles) {

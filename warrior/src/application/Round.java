@@ -73,7 +73,7 @@ public class Round {
 			
 	else
 	{
-		if(GameStarter.enemies.size() != 5) 
+		if(GameStarter.enemies.size() != 7) 
 		{
 			if(GameStarter.enemies.size() == 6)
 			{
