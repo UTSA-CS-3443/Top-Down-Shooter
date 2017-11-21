@@ -40,7 +40,7 @@ public class Round {
 			{
 				if(GameStarter.enemies.size() == 4)
 				{
-					GameStarter.queueAddition(new Mannequin2());
+					GameStarter.queueAddition(new Mannequin());
 
 				}
 				else if(GameStarter.enemies.size() == 3)
@@ -65,9 +65,9 @@ public class Round {
 				else
 				{
 					GameStarter.queueAddition(new Mannequin2());
-					GameStarter.queueAddition(new Mannequin());
 					GameStarter.queueAddition(new Mannequin2());
-					GameStarter.queueAddition(new Mannequin());
+					GameStarter.queueAddition(new Mannequin2());
+					GameStarter.queueAddition(new Mannequin2());
 					GameStarter.queueAddition(new Mannequin2());
 				}
         	}
@@ -79,7 +79,7 @@ public class Round {
 		{
 			if(GameStarter.enemies.size() == 6)
 			{
-				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin());
 			}
 			else if(GameStarter.enemies.size() == 5)
 			{
