@@ -23,6 +23,7 @@ public class GameScreen extends Pane {
     	}
     	else
     		this.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+    	//hey
     }
 
     
