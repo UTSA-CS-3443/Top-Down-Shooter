@@ -18,4 +18,5 @@ public class Figurations {
 
     public static final double PROJECTILE_MANNEQUIN_WIDTH = 6;
     public static final double PROJECTILE_MANNEQUIN_HEIGHT = 14;
+    
 }

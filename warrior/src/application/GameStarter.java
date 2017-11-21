@@ -29,7 +29,7 @@ public class GameStarter {
     
     static ArrayList<Entity> entitiesToAdd = new ArrayList<>();
     ArrayList<Entity> entitiesToRemove = new ArrayList<>();
-    
+   
     
     public GameStarter() {
         pane = new GameScreen();
@@ -195,6 +195,9 @@ public class GameStarter {
 
 
         play();
+    }
+    public void levelScreens() {
+    	
     }
     
 
