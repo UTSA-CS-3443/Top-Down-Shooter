@@ -344,6 +344,8 @@ public class GameStarter {
         mannequinFireLoop = new Timeline(new KeyFrame(Duration.millis(Timing.MANNEQUIN_FIRE_RATE), e -> {
             for (Entity entity : entities) {
                 if (entity instanceof Mannequin) ((Mannequin)entity).fireProjectile();
+                if (entity instanceof Mannequin2) ((Mannequin2)entity).fireProjectile();
+                if (entity instanceof Mannequin3) ((Mannequin3)entity).fireProjectile();
             }
         }));
         mannequinFireLoop.setCycleCount(Timeline.INDEFINITE);
