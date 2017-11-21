@@ -4,8 +4,8 @@ public class Figurations {
     public static final double SCREEN_WIDTH = 640;
     public static final double SCREEN_HEIGHT = 640;
     
-    public static final double PLAYER_WIDTH = 24;
-    public static final double PLAYER_HEIGHT = 28;
+    public static final double PLAYER_WIDTH = 13;
+    public static final double PLAYER_HEIGHT = 25;
 
     public static final double MANNEQUIN_WIDTH = 21;
     public static final double MANNEQUIN_HEIGHT = 57;
