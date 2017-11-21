@@ -7,11 +7,11 @@ import application.GameScreen;
 import application.GameStarter;
 import application.Timing;
 
-public class Mannequin extends Enemy {
+public class Mannequin3 extends Enemy {
  
-    public Mannequin() {
-        super(Resources.SPR_MANNEQUIN, Figurations.MANNEQUIN_WIDTH, Figurations.MANNEQUIN_HEIGHT, 
-                Health.MANNEQUIN, Timing.MANNEQUIN_DELTA_X, 
+    public Mannequin3() {
+        super(Resources.SPR_GOTHIC, Figurations.GOTHIC_WIDTH, Figurations.GOTHIC_HEIGHT, 
+                Health.MANNEQUIN3, Timing.MANNEQUIN_DELTA_X, 
                 (Math.random() < 0.5 ? Direction.LEFT : Direction.RIGHT));
     }
     
@@ -29,7 +29,13 @@ public class Mannequin extends Enemy {
     public void fireProjectile() {
         ((GameScreen)getParent()).getEngine();
 		GameStarter.queueAddition(
-            new MannequinProjectile(getX() + 25, getY() + height));
+            new MannequinProjectile(getX() + 15, getY() + height));
+		GameStarter.queueAddition(
+	            new MannequinProjectile(getX() - 15, getY() + height));
+		GameStarter.queueAddition(
+	            new MannequinProjectile(getX() + 30, getY() + height));
+		GameStarter.queueAddition(
+	            new MannequinProjectile(getX() - 30, getY() + height));
     }
  
     @Override

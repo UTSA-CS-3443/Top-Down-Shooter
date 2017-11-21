@@ -8,7 +8,7 @@ import javafx.util.Duration;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.effect.SepiaTone;
+
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -43,9 +43,6 @@ public class Main extends Application {
 		
 		imageView.setFitWidth(SCREEN_WIDTH);
         imageView.setFitHeight(SCREEN_HEIGHT);
-
-        SepiaTone tone = new SepiaTone(0.85);
-        imageView.setEffect(tone);
 
         Rectangle masker = new Rectangle(SCREEN_WIDTH, SCREEN_HEIGHT);
         masker.setOpacity(0);
