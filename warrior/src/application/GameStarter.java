@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.util.Duration;
 import entity.*;
 import application.Round;
@@ -28,6 +29,7 @@ public class GameStarter {
     
     static ArrayList<Entity> entitiesToAdd = new ArrayList<>();
     ArrayList<Entity> entitiesToRemove = new ArrayList<>();
+    
     
     public GameStarter() {
         pane = new GameScreen();
@@ -280,29 +282,8 @@ public class GameStarter {
                     }
                 }
             }
-            //if (Math.random() < Timing.ENEMY_SPAWN_CHANCE) {
             	Round.spawnEnemies();
-            	/*
-            	if(enemies.size() != 3) {
-                	
-                	if(enemies.size() == 2)
-                	{
-                		queueAddition(new Mannequin());
-                	}
-                	else if(enemies.size() == 1)
-                	{
-                		queueAddition(new Mannequin());
-                		queueAddition(new Mannequin());
-                	}
-                	else
-                	{
-                	queueAddition(new Mannequin());
-                	queueAddition(new Mannequin());
-                	queueAddition(new Mannequin());
-                	}
-                	}
-            	*/
-           // }
+     
             
             for (Projectiles projectile : projectiles) {
                 if (projectile instanceof WarriorProjectiles) {

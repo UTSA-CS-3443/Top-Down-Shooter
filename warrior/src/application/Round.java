@@ -40,19 +40,19 @@ public class Round {
 			{
 				if(GameStarter.enemies.size() == 4)
 				{
-					GameStarter.queueAddition(new Mannequin());
+					GameStarter.queueAddition(new Mannequin2());
 
 				}
 				else if(GameStarter.enemies.size() == 3)
 				{
-					GameStarter.queueAddition(new Mannequin());
+					GameStarter.queueAddition(new Mannequin2());
 					GameStarter.queueAddition(new Mannequin2());
 
 				}
 				else if(GameStarter.enemies.size() == 2)
 				{
 					GameStarter.queueAddition(new Mannequin2());
-					GameStarter.queueAddition(new Mannequin());
+					GameStarter.queueAddition(new Mannequin2());
 					GameStarter.queueAddition(new Mannequin2());
 				}
 				else if (GameStarter.enemies.size() == 1)
@@ -60,7 +60,7 @@ public class Round {
 					GameStarter.queueAddition(new Mannequin2());
 					GameStarter.queueAddition(new Mannequin2());
 					GameStarter.queueAddition(new Mannequin2());
-					GameStarter.queueAddition(new Mannequin());
+					GameStarter.queueAddition(new Mannequin2());
 				}
 				else
 				{
@@ -79,42 +79,42 @@ public class Round {
 		{
 			if(GameStarter.enemies.size() == 6)
 			{
-				GameStarter.queueAddition(new Mannequin());
+				GameStarter.queueAddition(new Mannequin3());
 			}
 			else if(GameStarter.enemies.size() == 5)
 			{
-				GameStarter.queueAddition(new Mannequin());
-				GameStarter.queueAddition(new Mannequin2());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 			}
 			else if(GameStarter.enemies.size() == 4)
 			{
 				GameStarter.queueAddition(new Mannequin3());
-				GameStarter.queueAddition(new Mannequin());
-				GameStarter.queueAddition(new Mannequin2());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 
 			}
 			else if(GameStarter.enemies.size() == 3)
 			{
 				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
-				GameStarter.queueAddition(new Mannequin());
-				GameStarter.queueAddition(new Mannequin2());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 
 			}
 			else if(GameStarter.enemies.size() == 2)
 			{
-				GameStarter.queueAddition(new Mannequin());
 				GameStarter.queueAddition(new Mannequin3());
-				GameStarter.queueAddition(new Mannequin2());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
 			}
 			else if (GameStarter.enemies.size() == 1)
 			{
-				GameStarter.queueAddition(new Mannequin());
-				GameStarter.queueAddition(new Mannequin());
-				GameStarter.queueAddition(new Mannequin2());
-				GameStarter.queueAddition(new Mannequin2());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
 			}
@@ -122,11 +122,11 @@ public class Round {
 			{
 				GameStarter.queueAddition(new Mannequin3());
 				GameStarter.queueAddition(new Mannequin3());
-				GameStarter.queueAddition(new Mannequin());
 				GameStarter.queueAddition(new Mannequin3());
-				GameStarter.queueAddition(new Mannequin2());
-				GameStarter.queueAddition(new Mannequin2());
-				GameStarter.queueAddition(new Mannequin());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
+				GameStarter.queueAddition(new Mannequin3());
 			}
     	}
 	}
