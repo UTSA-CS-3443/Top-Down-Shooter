@@ -23,17 +23,12 @@ import javafx.scene.shape.Rectangle;
 public class Main extends Application {
 	private static final int SCREEN_WIDTH = 640;
 	private static final int SCREEN_HEIGHT = 640;
-	
-//	private Pane root = new Pane();
-	//to start the game
+
 	GameStarter engine = new GameStarter();
 	Scene sceneGame = engine.getScene();
-	//making it simple for the getScene and this scene functions
 	Stage window = new Stage();
 	
-//	Scene menu;
-	
-	
+
 	
 	private Parent mainMenu() {
 		Pane root = new Pane();
