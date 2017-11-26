@@ -225,13 +225,8 @@ public class GameStarter {
                     		Round.KILL_COUNT = 0;
                     		Points.numberOfKills = 0;
                     		stop();
-                    		try {
-                    			Thread.sleep(5000);
                     			restart();
-                    		}
-                    		catch (InterruptedException e1) {
-                    			e1.printStackTrace();
-                    		}
+
         				
                     	}
                     }
@@ -243,12 +238,8 @@ public class GameStarter {
                     		Round.KILL_COUNT = 0;
                     		Points.numberOfKills = 0;
                     		stop();
-                    		try {
-                    			Thread.sleep(5000);
                     			restart();
-                    		} catch (InterruptedException e1) {
-                    			e1.printStackTrace();
-                    		}
+                    		
         				
                     	}
                     		
@@ -261,12 +252,8 @@ public class GameStarter {
                     		Round.KILL_COUNT = 0;
                     		Points.numberOfKills = 0;
                     		stop();
-                    		try {
-                    			Thread.sleep(5000);
                     			restart();
-                    		} catch (InterruptedException e1) {
-                    			e1.printStackTrace();
-                    		}
+                    		
         				
                     	}
                     		
