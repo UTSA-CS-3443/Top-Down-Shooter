@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.util.Duration;
 import entity.*;
 import application.Round;
