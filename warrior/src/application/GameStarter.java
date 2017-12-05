@@ -2,6 +2,8 @@ package application;
 
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.scene.Scene;
@@ -204,11 +206,11 @@ public class GameStarter {
     
     
     private void setupTimelines() {
-        
+
         gameLoop = new Timeline(new KeyFrame(Duration.millis(Timing.TICK_LENGTH), e -> {
             for (Entity entity : entities) {
                 entity.doTick();
-                
+
                 if (entity instanceof Enemy) {
                     if (((Enemy)entity).getHealth() <= 0) {
                     	Round.KILL_COUNT++;
